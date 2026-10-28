@@ -246,6 +246,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 16px 40px; justify-content: 
   .nav.open ul a { display: block; padding: 10px 0; font-size: 18px; }
   .nav.open .btn { display: inline-flex; }
   .flute { width: 38%; }
+  @media (hover: none), (pointer: coarse) { .flute { width: 10%; } }  /* touch: motion.js closes it as the page scrolls */
   .flute-card { display: none; }
   .hero-product { width: 92vw; margin-top: 18vh; }
   .hero-foot { flex-direction: column; align-items: flex-start; }
@@ -425,7 +426,7 @@ html.lenis, html.lenis body { height: auto; }
   .flute { transition: width 1.6s var(--ease); }
   .hero:hover .flute { width: 12%; }
 }
-/* touch screens have no hover: motion.js opens the glass as the page scrolls down and closes it back to half at the top */
+/* touch screens have no hover: the glass starts drawn back to the right, and motion.js closes it to the middle as the page scrolls down */
 
 /* ---------- manufacturer sections ---------- */
 .hero-title { font-size: clamp(22px, 2.2vw, 30px); line-height: 1.15; letter-spacing: -0.015em; margin-bottom: 8px; max-width: 22ch; }
@@ -512,3 +513,28 @@ html.is-loading .hero * , html.is-loading .nav > * { animation-play-state: pause
 .quote .hp { position: absolute; left: -9999px; }
 .quote .sent { grid-column: 1 / -1; margin: 0; padding: 14px 16px; background: var(--paper); border-left: 3px solid var(--blue); color: var(--ink); }
 @media (max-width: 600px) { .quote { grid-template-columns: 1fr; } }
+
+/* ---------- scroll storytelling (home page, set up by scroll.js) ---------- */
+.gsap-on main h2 .w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .1em; margin-bottom: -.1em; }
+.gsap-on main h2 .w > span { display: inline-block; transform-origin: 0 100%; }
+/* figures: the top rule is drawn by scroll.js (--rule 0→1) */
+.gsap-on .facts:not(.trust .facts) { position: relative; border-top-color: transparent; }
+.gsap-on .facts:not(.trust .facts)::before { content: ""; position: absolute; left: 0; right: 0; top: -1px; height: 1px; background: var(--ink); transform: scaleX(var(--rule, 1)); transform-origin: left; }
+.facts b { font-variant-numeric: tabular-nums; }
+/* order steps: the rule under each number fills as the scroll reaches it */
+.gsap-on .steps li::before {
+  border-bottom: 0; color: var(--moss); transition: color .5s;
+  background: linear-gradient(var(--blue), var(--blue)) left bottom / calc(var(--f, 1) * 100%) 2px no-repeat,
+              linear-gradient(var(--line), var(--line)) left bottom / 100% 1px no-repeat;
+}
+.gsap-on .steps li.on::before { color: var(--blue); }
+.gsap-on .steps li b { transition: color .5s; color: var(--moss); }
+.gsap-on .steps li.on b { color: var(--ink); }
+/* photographs: blue wipe */
+.wipe { position: relative; overflow: hidden; border-radius: var(--r); }
+.wipe > i { position: absolute; inset: 0; z-index: 2; background: var(--blue); transform: scaleX(0); transform-origin: left; pointer-events: none; }
+.wipe-frame img { height: 100%; }
+/* partner logos: endless belt */
+.logos.belt { display: block; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.logos-track { display: flex; gap: 56px; width: max-content; padding: 8px 0; will-change: transform; }
+.logos.belt img { width: clamp(110px, 11vw, 150px); flex: none; }

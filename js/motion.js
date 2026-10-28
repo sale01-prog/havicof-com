@@ -102,8 +102,8 @@
 
   // one animation loop: smooth scroll, eased cursor, hero depth
   const stage = $(".hero-stage"), flute = !fine && $(".flute");
-  const fw0 = flute ? flute.offsetWidth / flute.parentElement.offsetWidth * 100 : 0;  // the width site.css gives it
-  const s = { cx: ptr.x, cy: ptr.y, py: 0, tx: 0, ty: 0, fw: fw0 };
+  const FW_OPEN = 10, FW_SHUT = 50;  // % of the hero: drawn back to the right edge / closed to the middle of the chair
+  const s = { cx: ptr.x, cy: ptr.y, py: 0, tx: 0, ty: 0, fw: FW_OPEN };
   const frame = t => {
     if (lenis) lenis.raf(t);
     if (ring) {
@@ -120,8 +120,8 @@
       stage.style.setProperty("--ty", s.ty.toFixed(4));
     }
     if (flute) {
-      // full width at the top, fully drawn back after 40% of a screen of scrolling
-      s.fw = lerp(s.fw, fw0 * Math.max(0, 1 - scrollY / (innerHeight * .4)), .15);
+      // drawn back at the top so the chair and text read clearly; closes to the middle after 40% of a screen of scrolling
+      s.fw = lerp(s.fw, lerp(FW_OPEN, FW_SHUT, Math.min(1, scrollY / (innerHeight * .4))), .15);
       flute.style.width = s.fw.toFixed(2) + "%";
     }
     requestAnimationFrame(frame);
@@ -129,7 +129,9 @@
   requestAnimationFrame(frame);
 
   // reveal sections once as they enter the viewport (a fade only when the visitor prefers less motion)
-  const groups = $$(".sec-head, .cats, .grid, .strip, .craft-grid, .factory-grid, .facts, .partner-grid, .scenes, .page-head");
+  // on the home page scroll.js (GSAP) times the headings, figures and photos; this covers the rest
+  const timed = window.gsap && window.ScrollTrigger && !still;
+  const groups = $$(timed ? ".cats, .grid, .strip, .scenes, .page-head" : ".sec-head, .cats, .grid, .strip, .craft-grid, .factory-grid, .facts, .partner-grid, .scenes, .page-head");
   let pending = [];
   groups.forEach(g => {
     const kids = g.matches(".cats, .grid, .strip, .facts, .factory-grid, .scenes, .craft-grid, .partner-grid") ? [...g.children] : [g];
