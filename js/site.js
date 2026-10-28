@@ -1,12 +1,17 @@
-// HAVICO — havicof.com. Product data comes from js/data.js (window.HV).
+// HAVICO — havicof.com. Product data comes from data/products.json via js/data.js (window.HV).
 (() => {
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
-  const P = (window.HV && window.HV.products) || [];
-  const IMG = "img/p/";
+  // The CMS can leave fields empty (null) and new products have no family, so fill the gaps;
+  // family is the first word of the name, like gen_data.py. Products without a photo are skipped.
+  const P = ((window.HV && window.HV.products) || [])
+    .map(p => ({ ...p, cover: p.cover || "cutout", scenes: p.scenes || [], details: p.details || [],
+      variants: (p.variants || []).map(v => ({ ...v, label: v.label || "", images: v.images || [] })).filter(v => v.images.length),
+      family: p.family || (p.name || "").split(" ")[0] }))
+    .filter(p => p.slug && p.name && p.variants.length);
   const SW = { Natural: "#d9b58a", Walnut: "#6b4a33", Black: "#25292a", White: "#f2f0ec", Green: "#5d7262", "Orange red": "#d0532f", "Two-tone": "linear-gradient(90deg,#d9b58a 50%,#6b4a33 50%)" };
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-  const src = (p, f) => IMG + p.slug + "/" + f;
+  const src = (p, f) => f.replace(/^\//, "");  // CMS stores /img/...; relative keeps local previews working
   const cover = p => p.variants[0].images[0];
   const second = p => p.variants[0].images[1] || (p.variants[1] && p.variants[1].images[0]);
 
@@ -36,8 +41,8 @@
     const a = cover(p), b = second(p);
     const opts = p.variants.length > 1 ? `${p.variants.length} options` : "";
     return `<a class="card" href="product.html?p=${p.slug}">
-      <div class="ph${p.cover === "photo" ? " photo" : ""}">${a ? `<img class="${b ? "has-alt" : ""}" src="${src(p, a[0])}" width="${a[1]}" height="${a[2]}" alt="${esc(p.name)}" loading="lazy">` : ""}
-        ${b ? `<img class="alt" src="${src(p, b[0])}" alt="" loading="lazy">` : ""}</div>
+      <div class="ph${p.cover === "photo" ? " photo" : ""}">${a ? `<img class="${b ? "has-alt" : ""}" src="${src(p, a)}" alt="${esc(p.name)}" loading="lazy">` : ""}
+        ${b ? `<img class="alt" src="${src(p, b)}" alt="" loading="lazy">` : ""}</div>
       <div class="meta"><h3>${esc(p.name)}</h3>${p.code ? `<span class="code">${p.code}</span>` : ""}</div>
       <p class="sub">${esc(p.category)}${opts ? " · " + opts : ""}</p>${swatches(p)}</a>`;
   };
@@ -72,13 +77,13 @@
     const list = P.filter(p => p.category === c), cut = list.filter(x => x.cover === "cutout");
     const p = pick(cut, 1)[0] || cut.find(x => !used.has(x.slug)) || list[0], a = cover(p);
     used.add(p.slug);
-    return `<a class="cat" href="products.html#${encodeURIComponent(c)}"><img src="${src(p, a[0])}" alt="" loading="lazy"><div><b>${esc(c)}</b><span>${list.length}</span></div></a>`;
+    return `<a class="cat" href="products.html#${encodeURIComponent(c)}"><img src="${src(p, a)}" alt="" loading="lazy"><div><b>${esc(c)}</b><span>${list.length}</span></div></a>`;
   }).join("");
 
   const strip = $("[data-scenes]");
   if (strip) strip.innerHTML = pick(P.filter(p => p.details && p.details.length), 10).map(p => {
     const s = p.details[0];
-    return `<figure><a href="product.html?p=${p.slug}"><img src="${src(p, s[0])}" alt="Close-up of the ${esc(p.name)}" loading="lazy"></a><figcaption>${esc(p.name)}</figcaption></figure>`;
+    return `<figure><a href="product.html?p=${p.slug}"><img src="${src(p, s)}" alt="Close-up of the ${esc(p.name)}" loading="lazy"></a><figcaption>${esc(p.name)}</figcaption></figure>`;
   }).join("");
 
   // catalogue
@@ -121,8 +126,8 @@
       const v = p.variants[vi], im = v.images[ii] || v.images[0];
       pdp.innerHTML = `<div class="pdp">
         <div>
-          <div class="gallery-main${p.cover === "photo" ? " photo" : ""}" tabindex="0" role="button" aria-label="Open photo viewer">${im ? `<img src="${src(p, im[0])}" width="${im[1]}" height="${im[2]}" alt="${esc(p.name)}${v.label ? ", " + esc(v.label) : ""}">` : ""}</div>
-          ${v.images.length > 1 ? `<div class="thumbs">${v.images.map((x, i) => `<button data-i="${i}" aria-current="${i === ii}" aria-label="View image ${i + 1}"><img src="${src(p, x[0])}" alt="" loading="lazy"></button>`).join("")}</div>` : ""}
+          <div class="gallery-main${p.cover === "photo" ? " photo" : ""}" tabindex="0" role="button" aria-label="Open photo viewer">${im ? `<img src="${src(p, im)}" alt="${esc(p.name)}${v.label ? ", " + esc(v.label) : ""}">` : ""}</div>
+          ${v.images.length > 1 ? `<div class="thumbs">${v.images.map((x, i) => `<button data-i="${i}" aria-current="${i === ii}" aria-label="View image ${i + 1}"><img src="${src(p, x)}" alt="" loading="lazy"></button>`).join("")}</div>` : ""}
         </div>
         <div class="pdp-info">
           <p class="crumbs"><a href="products.html">Products</a> / <a href="products.html#${encodeURIComponent(p.category)}">${esc(p.category)}</a></p>
@@ -141,7 +146,7 @@
             <div><dt>OEM / ODM</dt><dd>Custom sizes, woods, finishes and your own branding</dd></div>
           </dl>
         </div></div>
-        ${p.scenes.length ? `<h2 style="font-size:clamp(26px,3vw,40px);margin:8px 0 24px">More photos</h2><div class="scenes">${p.scenes.map(s => `<img src="${src(p, s[0])}" alt="${esc(p.name)} in an interior" loading="lazy">`).join("")}</div>` : ""}`;
+        ${p.scenes.length ? `<h2 style="font-size:clamp(26px,3vw,40px);margin:8px 0 24px">More photos</h2><div class="scenes">${p.scenes.map(s => `<img src="${src(p, s)}" alt="${esc(p.name)} in an interior" loading="lazy">`).join("")}</div>` : ""}`;
     };
     // swap only the main photo when a thumbnail is chosen, with a short crossfade
     const show = i => {
@@ -150,7 +155,7 @@
       ii = i;
       $$(".thumbs button", pdp).forEach(b => b.setAttribute("aria-current", +b.dataset.i === i));
       main.classList.add("out");
-      const next = new Image(); next.src = src(p, im[0]);
+      const next = new Image(); next.src = src(p, im);
       next.decode().catch(() => {}).then(() => { main.src = next.src; main.classList.remove("out"); });
     };
     // full-screen viewer for the current finish plus the extra photos
@@ -162,7 +167,7 @@
       box.innerHTML = `<button class="round prev" aria-label="Previous photo"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
         <img alt=""><button class="round next" aria-label="Next photo"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
         <button class="round close" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button><p class="count"></p>`;
-      const set = () => { $("img", box).src = src(p, list[k][0]); $(".count", box).textContent = `${k + 1} / ${list.length}`; };
+      const set = () => { $("img", box).src = src(p, list[k]); $(".count", box).textContent = `${k + 1} / ${list.length}`; };
       const go = d => { k = (k + d + list.length) % list.length; set(); };
       const close = () => { box.remove(); document.removeEventListener("keydown", key); document.body.style.overflow = ""; window.__lenis && window.__lenis.start(); $(".gallery-main", pdp).focus(); };
       const key = e => { if (e.key === "Escape") close(); if (e.key === "ArrowRight") go(1); if (e.key === "ArrowLeft") go(-1); };

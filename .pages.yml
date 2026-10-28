@@ -1,0 +1,93 @@
+# Pages CMS (https://app.pagescms.org): edit the product catalogue of havicof.com in the browser.
+# Every save is a commit to main; GitHub Pages republishes in about a minute.
+media:
+  input: img
+  output: /img
+  extensions: [webp, jpg, jpeg, png, svg]
+
+content:
+  - name: products
+    label: Sản phẩm
+    type: file
+    path: data/products.json
+    format: json
+    list: true
+    fields:
+      - name: name
+        label: Tên sản phẩm (tiếng Anh)
+        type: string
+        required: true
+      - name: slug
+        label: Mã đường dẫn
+        description: "Chữ thường, không dấu, nối bằng gạch ngang, không trùng sản phẩm khác. Ví dụ: oslo-sofa"
+        type: string
+        required: true
+      - name: code
+        label: Mã sản phẩm
+        type: string
+      - name: category
+        label: Danh mục
+        type: select
+        required: true
+        options:
+          values: [Dining chairs, Tables, Lounge chairs, Outdoor, Beds, Storage, Sofas]
+      - name: featured
+        label: Hiện ở trang chủ (Featured)
+        type: boolean
+      - name: desc
+        label: Mô tả
+        type: text
+      - name: material
+        label: Chất liệu
+        type: string
+      - name: dims
+        label: Kích thước
+        description: "Ví dụ: W550 × D530 × H770 mm"
+        type: string
+      - name: finish
+        label: Hoàn thiện / bọc
+        type: string
+      - name: optLabel
+        label: Tên nhóm tuỳ chọn
+        description: Để trống thì hiện "Finish". Ví dụ Size, Set.
+        type: string
+      - name: variants
+        label: Phiên bản màu / tuỳ chọn
+        description: Phiên bản đầu tiên, ảnh đầu tiên là ảnh bìa. Ảnh nên là webp vuông, nền trắng hoặc đã tách nền.
+        type: object
+        list: true
+        required: true
+        fields:
+          - name: label
+            label: Tên phiên bản (Natural, Walnut, Black, White, Green, Orange red, Two-tone có ô màu)
+            type: string
+          - name: images
+            label: Ảnh
+            type: image
+            options:
+              multiple: { max: 30 }
+              unique: true
+              rename: safe
+      - name: details
+        label: Ảnh cận cảnh (dải "Up close" ở trang chủ)
+        type: image
+        options:
+          multiple: { max: 30 }
+          unique: true
+          rename: safe
+      - name: scenes
+        label: Ảnh không gian (mục "More photos" ở trang sản phẩm)
+        type: image
+        options:
+          multiple: { max: 30 }
+          unique: true
+          rename: safe
+      - name: cover
+        label: Kiểu ảnh bìa
+        type: select
+        options:
+          values: [cutout, photo]
+      - name: family
+        label: Dòng sản phẩm
+        description: Sản phẩm cùng dòng không đứng cạnh nhau. Để trống thì lấy chữ đầu của tên.
+        type: string

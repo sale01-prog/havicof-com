@@ -1,0 +1,885 @@
+[
+  {
+    "slug": "olso-sofa",
+    "code": "",
+    "name": "OSLO Outdoor Sofa",
+    "dims": "W2100 × D800 × H720 mm",
+    "finish": "Olefin fabric: water, UV and fade resistant",
+    "category": "Outdoor",
+    "desc": "A wide outdoor sofa with slatted solid acacia sides and deep, weather-resistant cushions.",
+    "material": "Solid acacia",
+    "cover": "cutout",
+    "variants": [
+      {
+        "label": "",
+        "images": [
+          "/img/p/olso-sofa/olso-sofa-11.webp",
+          "/img/p/olso-sofa/olso-sofa-9.webp",
+          "/img/p/olso-sofa/olso-sofa-1.webp",
+          "/img/p/olso-sofa/olso-sofa-5.webp",
+          "/img/p/olso-sofa/olso-sofa-10.webp",
+          "/img/p/olso-sofa/olso-sofa-8.webp"
+        ]
+      }
+    ],
+    "scenes": [],
+    "details": [
+      "/img/p/olso-sofa/olso-sofa-2.webp"
+    ],
+    "featured": true,
+    "family": "OSLO"
+  },
+  {
+    "slug": "sen-y-back-dining-chair",
+    "code": "HA-C216",
+    "name": "SEN Y-Back Dining Chair",
+    "dims": "W550 × D530 × H770 mm",
+    "finish": "Japanese washi paper cord seat",
+    "category": "Dining chairs",
+    "desc": "A light dining chair with a steam-bent top rail, a Y-shaped back and a hand-woven paper cord seat. Available in several colours.",
+    "material": "Solid beech",
+    "cover": "cutout",
+    "variants": [
+      {
+        "label": "Natural",
+        "images": [
+          "/img/p/sen-y-back-dining-chair/sen-y-back-dining-chair-7.webp"
+        ]
+      },
+      {
+        "label": "Green",
+        "images": [
+          "/img/p/sen-y-back-dining-chair/sen-y-back-dining-chair-8.webp"
+        ]
+      },
+      {
+        "label": "Orange red",
+        "images": [
+          "/img/p/sen-y-back-dining-chair/sen-y-back-dining-chair-12.webp",
+          "/img/p/sen-y-back-dining-chair/sen-y-back-dining-chair-10.webp",
+          "/img/p/sen-y-back-dining-chair/sen-y-back-dining-chair-11.webp"
+        ]
+      }
+    ],
+    "scenes": [],
+    "details": [],
+    "featured": true,
+    "family": "SEN"
+  },
+  {
+    "slug": "tram-lounge-chair",
+    "code": "HA-C110",
+    "name": "TRAM Lounge Chair",
+    "dims": "W635 × D660 × H699 mm",
+    "finish": "Premium simili leather",
+    "category": "Lounge chairs",
+    "desc": "A lounge chair with a solid beech frame and a seat and back in premium simili leather.",
+    "material": "Solid beech",
+    "cover": "cutout",
+    "variants": [
+      {
+        "label": "",
+        "images": [
+          "/img/p/tram-lounge-chair/tram-lounge-chair-6.webp",
+          "/img/p/tram-lounge-chair/tram-lounge-chair-5.webp",
+          "/img/p/tram-lounge-chair/tram-lounge-chair-3.webp",
+          "/img/p/tram-lounge-chair/tram-lounge-chair-4.webp",
+          "/img/p/tram-lounge-chair/tram-lounge-chair-1.webp",
+          "/img/p/tram-lounge-chair/tram-lounge-chair-2.webp"
+        ]
+      }
+    ],
+    "scenes": [],
+    "details": [],
+    "featured": true,
+    "family": "TRAM"
+  },
+  {
+    "slug": "norden-dining-chair",
+    "code": "HA-C104",
+    "name": "NORDEN Dining Chair",
+    "dims": "W520 × D490 × H815 mm",
+    "finish": "Japanese washi paper cord seat",
+    "category": "Dining chairs",
+    "desc": "A dining chair with tapered legs, a curved back rail and a hand-woven paper cord seat.",
+    "material": "Solid beech",
+    "cover": "cutout",
+    "variants": [
+      {
+        "label": "Walnut",
+        "images": [
+          "/img/p/norden-dining-chair/norden-dining-chair-4.webp",
+          "/img/p/norden-dining-chair/norden-dining-chair-3.webp",
+          "/img/p/norden-dining-chair/norden-dining-chair-1.webp"
+        ]
+      },
+      {
+        "label": "Black",
+        "images": [
+          "/img/p/norden-dining-chair/norden-dining-chair-13.webp",
+          "/img/p/norden-dining-chair/norden-dining-chair-14.webp",
+          "/img/p/norden-dining-chair/norden-dining-chair-12.webp"
+        ]
+      }
+    ],
+    "scenes": [],
+    "details": [],
+    "featured": true,
+    "family": "NORDEN"
+  },
+  {
+    "slug": "palma-lounge-chair",
+    "code": "",
+    "name": "PALMA Lounge Chair",
+    "dims": "W760 × D820 × H780 mm",
+    "finish": "Olefin fabric: water, UV and fade resistant",
+    "category": "Outdoor",
+    "desc": "An outdoor lounge chair with a woven rope back, solid acacia arms and a weather-resistant seat cushion.",
+    "material": "Solid acacia",
+    "cover": "cutout",
+    "variants": [
+      {
+        "label": "",
+        "images": [
+          "/img/p/palma-lounge-chair/palma-lounge-chair-7.webp",
+          "/img/p/palma-lounge-chair/palma-lounge-chair-2.webp",
+          "/img/p/palma-lounge-chair/palma-lounge-chair-3.webp",
+          "/img/p/palma-lounge-chair/palma-lounge-chair-5.webp",
+          "/img/p/palma-lounge-chair/palma-lounge-chair-6.webp",
+          "/img/p/palma-lounge-chair/palma-lounge-chair-1.webp"
+        ]
+      }
+    ],
+    "scenes": [],
+    "details": [
+      "/img/p/palma-lounge-chair/palma-lounge-chair-4.webp"
+    ],
+    "featured": true,
+    "family": "PALMA"
+  },
+  {
+    "slug": "nordic-round-dining-table",
+    "code": "HA-D01",
+    "name": "NORDIC Round Dining Table",
+    "dims": "Ø1200 × H750 mm",
+    "finish": "PU finish",
+    "category": "Tables",
+    "desc": "A round dining table on three splayed legs.",
+    "material": "Solid beech",
+    "cover": "cutout",
+    "variants": [
+      {
+        "label": "Natural",
+        "images": [
+          "/img/p/nordic-round-dining-table/nordic-round-dining-table-1.webp",
+          "/img/p/nordic-round-dining-table/nordic-round-dining-table-2.webp"
+        ]
+      },
+      {
+        "label": "Black",
+        "images": [
+          "/img/p/nordic-round-dining-table/nordic-round-dining-table-3.webp",
+          "/img/p/nordic-round-dining-table/nordic-round-dining-table-4.webp"
+        ]
+      }
+    ],
+    "scenes": [],
+    "details": [],
+    "featured": true,
+    "family": "NORDIC"
+  },
+  {
+    "slug": "skagen-dining-armchair",
+    "code": "HA-C102",
+    "name": "SKAGEN Dining Armchair",
+    "dims": "W595 × D500 × H720 mm",
+    "finish": "Premium simili leather",
+    "category": "Dining chairs",
+    "desc": "A sturdy dining armchair with a curved top rail that runs into the arms, and an upholstered seat.",
+    "material": "Solid beech",
+    "cover": "cutout",
+    "variants": [
+      {
+        "label": "",
+        "images": [
+          "/img/p/skagen-dining-armchair/skagen-dining-armchair-2.webp",
+          "/img/p/skagen-dining-armchair/skagen-dining-armchair-4.webp",
+          "/img/p/skagen-dining-armchair/skagen-dining-armchair-5.webp",
+          "/img/p/skagen-dining-armchair/skagen-dining-armchair-3.webp"
+        ]
+      }
+    ],
+    "scenes": [],
+    "details": [
+      "/img/p/skagen-dining-armchair/skagen-dining-armchair-6.webp"
+    ],
+    "featured": true,
+    "family": "SKAGEN"
+  },
+  {
+    "slug": "lan-bentwood-dining-chair",
+    "code": "HA-C219",
+    "name": "LAN Bentwood Dining Chair",
+    "dims": "W430 × D510 × H800 mm",
+    "finish": "PU finish",
+    "category": "Dining chairs",
+    "desc": "A bentwood dining chair with a one-piece curved seat and back on slim, tapered legs.",
+    "material": "Solid beech",
+    "cover": "cutout",
+    "variants": [
+      {
+        "label": "Walnut",
+        "images": [
+          "/img/p/lan-bentwood-dining-chair/lan-bentwood-dining-chair-2.webp",
+          "/img/p/lan-bentwood-dining-chair/lan-bentwood-dining-chair-1.webp",
+          "/img/p/lan-bentwood-dining-chair/lan-bentwood-dining-chair-3.webp",
+          "/img/p/lan-bentwood-dining-chair/lan-bentwood-dining-chair-4.webp"
+        ]
+      }
+    ],
+    "scenes": [],
+    "details": [
+      "/img/p/lan-bentwood-dining-chair/lan-bentwood-dining-chair-11.webp"
+    ],
+    "featured": true,
+    "family": "LAN"
+  },
+  {
+    "slug": "fjord-dining-chair",
+    "code": "HA-C217",
+    "name": "FJORD Dining Chair",
+    "dims": "W480 × D530 × H780 mm",
+    "finish": "High-performance fabric, PU finish",
+    "category": "Dining chairs",
+    "desc": "A dining chair with a curved seat and a wide, wing-shaped back rail. Shown in black.",
+    "material": "Solid beech",
+    "cover": "cutout",
+    "variants": [
+      {
+        "label": "Black",
+        "images": [
+          "/img/p/fjord-dining-chair/fjord-dining-chair-11.webp",
+          "/img/p/fjord-dining-chair/fjord-dining-chair-9.webp",
+          "/img/p/fjord-dining-chair/fjord-dining-chair-10.webp"
+        ]
+      }
+    ],
+    "scenes": [],
+    "details": [],
+    "featured": false,
+    "family": "FJORD"
+  },
+  {
+    "slug": "mai-dining-chair",
+    "code": "HA-C107",
+    "name": "MAI Dining Chair",
+    "dims": "W525 × D545 × H800 mm",
+    "finish": "Premium simili leather",
+    "category": "Dining chairs",
+    "desc": "A simple dining chair with a woven back panel and a cushioned seat. Light, warm and easy to place.",
+    "material": "Solid beech",
+    "cover": "cutout",
+    "variants": [
+      {
+        "label": "",
+        "images": [
+          "/img/p/mai-dining-chair/mai-dining-chair-8.webp",
+          "/img/p/mai-dining-chair/mai-dining-chair-4.webp",
+          "/img/p/mai-dining-chair/mai-dining-chair-6.webp",
+          "/img/p/mai-dining-chair/mai-dining-chair-7.webp",
+          "/img/p/mai-dining-chair/mai-dining-chair-5.webp"
+        ]
+      }
+    ],
+    "scenes": [],
+    "details": [],
+    "featured": false,
+    "family": "MAI"
+  },
+  {
+    "slug": "mai-dining-armchair",
+    "code": "HA-C108",
+    "name": "MAI Dining Armchair",
+    "dims": "W570 × D545 × H800 mm",
+    "finish": "Premium simili leather",
+    "category": "Dining chairs",
+    "desc": "The armchair version of the MAI chair, with open arms and a woven back panel.",
+    "material": "Solid beech",
+    "cover": "cutout",
+    "variants": [
+      {
+        "label": "",
+        "images": [
+          "/img/p/mai-dining-armchair/mai-dining-armchair-6.webp",
+          "/img/p/mai-dining-armchair/mai-dining-armchair-7.webp",
+          "/img/p/mai-dining-armchair/mai-dining-armchair-5.webp",
+          "/img/p/mai-dining-armchair/mai-dining-armchair-4.webp"
+        ]
+      }
+    ],
+    "scenes": [],
+    "details": [],
+    "featured": false,
+    "family": "MAI"
+  },
+  {
+    "slug": "cana-dining-chair",
+    "code": "HA-C211",
+    "name": "CANA Dining Chair",
+    "dims": "W480 × D540 × H820 mm",
+    "finish": "High-performance fabric, Japanese washi paper cord",
+    "category": "Dining chairs",
+    "desc": "A dining chair with a hand-woven cane back and a cushioned seat. Made in our Hai Phong factory.",
+    "material": "Solid beech",
+    "cover": "cutout",
+    "variants": [
+      {
+        "label": "",
+        "images": [
+          "/img/p/cana-dining-chair/cana-dining-chair-7.webp",
+          "/img/p/cana-dining-chair/cana-dining-chair-5.webp",
+          "/img/p/cana-dining-chair/cana-dining-chair-4.webp",
+          "/img/p/cana-dining-chair/cana-dining-chair-6.webp"
+        ]
+      }
+    ],
+    "scenes": [],
+    "details": [],
+    "featured": false,
+    "family": "CANA"
+  },
+  {
+    "slug": "cana-dining-armchair",
+    "code": "HA-C220",
+    "name": "CANA Dining Armchair",
+    "dims": "W616 × D597 × H826 mm",
+    "finish": "Japanese washi paper cord, PU finish",
+    "category": "Dining chairs",
+    "desc": "The armchair version of the CANA chair, with a cane back, open arms and a cushioned seat.",
+    "material": "Solid beech",
+    "cover": "cutout",
+    "variants": [
+      {
+        "label": "",
+        "images": [
+          "/img/p/cana-dining-armchair/cana-dining-armchair-2.webp",
+          "/img/p/cana-dining-armchair/cana-dining-armchair-6.webp",
+          "/img/p/cana-dining-armchair/cana-dining-armchair-4.webp",
+          "/img/p/cana-dining-armchair/cana-dining-armchair-3.webp",
+          "/img/p/cana-dining-armchair/cana-dining-armchair-5.webp"
+        ]
+      }
+    ],
+    "scenes": [],
+    "details": [],
+    "featured": false,
+    "family": "CANA"
+  },
+  {
+    "slug": "halo-dining-chair",
+    "code": "HA-C212",
+    "name": "HALO Dining Chair",
+    "dims": "W520 × D515 × H780 mm",
+    "finish": "Premium simili leather",
+    "category": "Dining chairs",
+    "desc": "A clean-lined dining chair with an upholstered seat, made for everyday dining.",
+    "material": "Solid beech",
+    "cover": "cutout",
+    "variants": [
+      {
+        "label": "",
+        "images": [
+          "/img/p/halo-dining-chair/halo-dining-chair-8.webp",
+          "/img/p/halo-dining-chair/halo-dining-chair-6.webp",
+          "/img/p/halo-dining-chair/halo-dining-chair-4.webp",
+          "/img/p/halo-dining-chair/halo-dining-chair-7.webp",
+          "/img/p/halo-dining-chair/halo-dining-chair-5.webp"
+        ]
+      }
+    ],
+    "scenes": [],
+    "details": [],
+    "featured": false,
+    "family": "HALO"
+  },
+  {
+    "slug": "an-dining-chair",
+    "code": "HA-C999",
+    "name": "AN Dining Chair",
+    "dims": "",
+    "finish": "",
+    "category": "Dining chairs",
+    "desc": "A dining chair with an upholstered seat and back on a solid wood frame.",
+    "material": "Solid wood, fabric",
+    "cover": "cutout",
+    "variants": [
+      {
+        "label": "Walnut",
+        "images": [
+          "/img/p/an-dining-chair/an-dining-chair-1.webp",
+          "/img/p/an-dining-chair/an-dining-chair-2.webp",
+          "/img/p/an-dining-chair/an-dining-chair-3.webp",
+          "/img/p/an-dining-chair/an-dining-chair-4.webp"
+        ]
+      },
+      {
+        "label": "Natural",
+        "images": [
+          "/img/p/an-dining-chair/an-dining-chair-5.webp",
+          "/img/p/an-dining-chair/an-dining-chair-6.webp",
+          "/img/p/an-dining-chair/an-dining-chair-7.webp",
+          "/img/p/an-dining-chair/an-dining-chair-8.webp"
+        ]
+      }
+    ],
+    "scenes": [],
+    "details": [],
+    "featured": false,
+    "family": "AN"
+  },
+  {
+    "slug": "an-dining-bench",
+    "code": "HA-BEC01",
+    "name": "AN Dining Bench",
+    "dims": "",
+    "finish": "",
+    "category": "Dining chairs",
+    "desc": "A long upholstered dining bench with tapered legs.",
+    "material": "Solid wood, fabric",
+    "cover": "cutout",
+    "variants": [
+      {
+        "label": "",
+        "images": [
+          "/img/p/an-dining-bench/an-dining-bench-2.webp",
+          "/img/p/an-dining-bench/an-dining-bench-1.webp",
+          "/img/p/an-dining-bench/an-dining-bench-3.webp",
+          "/img/p/an-dining-bench/an-dining-bench-4.webp"
+        ]
+      }
+    ],
+    "scenes": [],
+    "details": [],
+    "featured": false,
+    "family": "AN"
+  },
+  {
+    "slug": "curve-dining-chair",
+    "code": "",
+    "name": "CURVE Dining Chair",
+    "dims": "",
+    "finish": "",
+    "category": "Dining chairs",
+    "desc": "A tall-backed dining chair with an upholstered seat and back.",
+    "material": "Solid wood, fabric",
+    "cover": "cutout",
+    "variants": [
+      {
+        "label": "",
+        "images": [
+          "/img/p/curve-dining-chair/curve-dining-chair-3.webp",
+          "/img/p/curve-dining-chair/curve-dining-chair-2.webp",
+          "/img/p/curve-dining-chair/curve-dining-chair-1.webp"
+        ]
+      }
+    ],
+    "scenes": [],
+    "details": [],
+    "featured": false,
+    "family": "CURVE"
+  },
+  {
+    "slug": "float-dining-table",
+    "code": "HA-BA04",
+    "name": "FLOAT Dining Table",
+    "dims": "",
+    "finish": "",
+    "category": "Tables",
+    "desc": "A dining table with a refined edge that makes the top seem to float above the frame.",
+    "material": "Solid wood",
+    "cover": "cutout",
+    "variants": [
+      {
+        "label": "",
+        "images": [
+          "/img/p/float-dining-table/float-dining-table-4.webp"
+        ]
+      }
+    ],
+    "scenes": [],
+    "details": [
+      "/img/p/float-dining-table/float-dining-table-1.webp"
+    ],
+    "featured": false,
+    "family": "FLOAT"
+  },
+  {
+    "slug": "norden-dining-table",
+    "code": "HA-BA01",
+    "name": "NORDEN Dining Table",
+    "dims": "",
+    "finish": "PU finish",
+    "category": "Tables",
+    "desc": "A solid wood dining table with softened edges and tapered legs.",
+    "material": "Solid beech",
+    "cover": "cutout",
+    "variants": [
+      {
+        "label": "",
+        "images": [
+          "/img/p/norden-dining-table/norden-dining-table-5.webp",
+          "/img/p/norden-dining-table/norden-dining-table-6.webp",
+          "/img/p/norden-dining-table/norden-dining-table-4.webp"
+        ]
+      }
+    ],
+    "scenes": [],
+    "details": [],
+    "featured": false,
+    "family": "NORDEN"
+  },
+  {
+    "slug": "haven-lounge-chair",
+    "code": "HA-C222",
+    "name": "HAVEN Lounge Chair",
+    "dims": "W724 × D914 × H838 mm",
+    "finish": "High-performance fabric",
+    "category": "Lounge chairs",
+    "desc": "A lounge chair with a slim frame and soft, deep cushions in fabric.",
+    "material": "Solid beech",
+    "cover": "cutout",
+    "variants": [
+      {
+        "label": "",
+        "images": [
+          "/img/p/haven-lounge-chair/haven-lounge-chair-3.webp",
+          "/img/p/haven-lounge-chair/haven-lounge-chair-4.webp",
+          "/img/p/haven-lounge-chair/haven-lounge-chair-5.webp",
+          "/img/p/haven-lounge-chair/haven-lounge-chair-6.webp",
+          "/img/p/haven-lounge-chair/haven-lounge-chair-1.webp",
+          "/img/p/haven-lounge-chair/haven-lounge-chair-2.webp"
+        ]
+      }
+    ],
+    "scenes": [],
+    "details": [],
+    "featured": false,
+    "family": "HAVEN"
+  },
+  {
+    "slug": "sierra-outdoor-set",
+    "code": "",
+    "name": "SIERRA Outdoor Set",
+    "dims": "2-seater W1500 × D820 × H760 mm, lounge chair W760 × D800 × H760 mm, coffee table W1100 × D600 × H400 mm",
+    "finish": "Olefin fabric: water, UV and fade resistant",
+    "category": "Outdoor",
+    "desc": "An outdoor lounge set with a sofa, two lounge chairs and a coffee table. Slatted solid wood with weather-resistant cushions.",
+    "material": "Solid acacia",
+    "cover": "cutout",
+    "variants": [
+      {
+        "label": "Lounge set",
+        "images": [
+          "/img/p/sierra-outdoor-set/sierra-outdoor-set-2.webp",
+          "/img/p/sierra-outdoor-set/sierra-outdoor-set-1.webp",
+          "/img/p/sierra-outdoor-set/sierra-outdoor-set-3.webp",
+          "/img/p/sierra-outdoor-set/sierra-outdoor-set-4.webp",
+          "/img/p/sierra-outdoor-set/sierra-outdoor-set-6.webp",
+          "/img/p/sierra-outdoor-set/sierra-outdoor-set-5.webp"
+        ]
+      }
+    ],
+    "scenes": [],
+    "details": [
+      "/img/p/sierra-outdoor-set/sierra-outdoor-set-7.webp"
+    ],
+    "featured": false,
+    "optLabel": "Set",
+    "family": "SIERRA"
+  },
+  {
+    "slug": "aurora-lounge-chair",
+    "code": "",
+    "name": "AURORA Lounge Chair",
+    "dims": "W760 × D800 × H760 mm",
+    "finish": "Olefin fabric: water, UV and fade resistant",
+    "category": "Outdoor",
+    "desc": "An outdoor lounge chair with slatted solid acacia sides and a deep, weather-resistant cushion.",
+    "material": "Solid acacia",
+    "cover": "cutout",
+    "variants": [
+      {
+        "label": "",
+        "images": [
+          "/img/p/aurora-lounge-chair/aurora-lounge-chair-3.webp",
+          "/img/p/aurora-lounge-chair/aurora-lounge-chair-7.webp",
+          "/img/p/aurora-lounge-chair/aurora-lounge-chair-4.webp",
+          "/img/p/aurora-lounge-chair/aurora-lounge-chair-6.webp",
+          "/img/p/aurora-lounge-chair/aurora-lounge-chair-5.webp"
+        ]
+      }
+    ],
+    "scenes": [],
+    "details": [
+      "/img/p/aurora-lounge-chair/aurora-lounge-chair-1.webp"
+    ],
+    "featured": false,
+    "family": "AURORA"
+  },
+  {
+    "slug": "aspen-lounge-chair",
+    "code": "",
+    "name": "ASPEN Lounge Chair",
+    "dims": "W760 × D850 × H760 mm",
+    "finish": "Olefin fabric: water, UV and fade resistant",
+    "category": "Outdoor",
+    "desc": "A low, reclined outdoor lounge chair with a slatted solid acacia frame and thick, weather-resistant cushions.",
+    "material": "Solid acacia",
+    "cover": "cutout",
+    "variants": [
+      {
+        "label": "",
+        "images": [
+          "/img/p/aspen-lounge-chair/aspen-lounge-chair-1.webp",
+          "/img/p/aspen-lounge-chair/aspen-lounge-chair-9.webp",
+          "/img/p/aspen-lounge-chair/aspen-lounge-chair-8.webp",
+          "/img/p/aspen-lounge-chair/aspen-lounge-chair-2.webp",
+          "/img/p/aspen-lounge-chair/aspen-lounge-chair-4.webp",
+          "/img/p/aspen-lounge-chair/aspen-lounge-chair-3.webp",
+          "/img/p/aspen-lounge-chair/aspen-lounge-chair-6.webp",
+          "/img/p/aspen-lounge-chair/aspen-lounge-chair-5.webp"
+        ]
+      }
+    ],
+    "scenes": [],
+    "details": [
+      "/img/p/aspen-lounge-chair/aspen-lounge-chair-11.webp"
+    ],
+    "featured": false,
+    "family": "ASPEN"
+  },
+  {
+    "slug": "moc-spindle-bed",
+    "code": "HA-B101",
+    "name": "MOC Spindle Bed",
+    "dims": "W1895 × D2097 × H1140 mm",
+    "finish": "PU coating",
+    "category": "Beds",
+    "desc": "A bed with a spindle headboard, tapered legs and concealed joinery. Available in four finishes.",
+    "material": "Solid beech",
+    "cover": "cutout",
+    "variants": [
+      {
+        "label": "Walnut",
+        "images": [
+          "/img/p/moc-spindle-bed/moc-spindle-bed-2.webp",
+          "/img/p/moc-spindle-bed/moc-spindle-bed-3.webp",
+          "/img/p/moc-spindle-bed/moc-spindle-bed-1.webp",
+          "/img/p/moc-spindle-bed/moc-spindle-bed-5.webp",
+          "/img/p/moc-spindle-bed/moc-spindle-bed-4.webp"
+        ]
+      },
+      {
+        "label": "White",
+        "images": [
+          "/img/p/moc-spindle-bed/moc-spindle-bed-9.webp"
+        ]
+      },
+      {
+        "label": "Natural",
+        "images": [
+          "/img/p/moc-spindle-bed/moc-spindle-bed-13.webp",
+          "/img/p/moc-spindle-bed/moc-spindle-bed-14.webp",
+          "/img/p/moc-spindle-bed/moc-spindle-bed-11.webp",
+          "/img/p/moc-spindle-bed/moc-spindle-bed-12.webp",
+          "/img/p/moc-spindle-bed/moc-spindle-bed-15.webp",
+          "/img/p/moc-spindle-bed/moc-spindle-bed-16.webp"
+        ]
+      },
+      {
+        "label": "Black",
+        "images": [
+          "/img/p/moc-spindle-bed/moc-spindle-bed-17.webp",
+          "/img/p/moc-spindle-bed/moc-spindle-bed-18.webp",
+          "/img/p/moc-spindle-bed/moc-spindle-bed-19.webp",
+          "/img/p/moc-spindle-bed/moc-spindle-bed-21.webp",
+          "/img/p/moc-spindle-bed/moc-spindle-bed-20.webp"
+        ]
+      }
+    ],
+    "scenes": [],
+    "details": [],
+    "featured": false,
+    "family": "MOC"
+  },
+  {
+    "slug": "moc-panel-bed",
+    "code": "HA-B105",
+    "name": "MOC Panel Bed",
+    "dims": "W1895 × D2097 × H1140 mm",
+    "finish": "PU coating",
+    "category": "Beds",
+    "desc": "A bed with a solid panel headboard and a simple, low frame.",
+    "material": "Solid beech",
+    "cover": "cutout",
+    "variants": [
+      {
+        "label": "Walnut",
+        "images": [
+          "/img/p/moc-panel-bed/moc-panel-bed-1.webp",
+          "/img/p/moc-panel-bed/moc-panel-bed-4.webp",
+          "/img/p/moc-panel-bed/moc-panel-bed-2.webp",
+          "/img/p/moc-panel-bed/moc-panel-bed-3.webp"
+        ]
+      },
+      {
+        "label": "Natural",
+        "images": [
+          "/img/p/moc-panel-bed/moc-panel-bed-8.webp",
+          "/img/p/moc-panel-bed/moc-panel-bed-6.webp",
+          "/img/p/moc-panel-bed/moc-panel-bed-7.webp"
+        ]
+      }
+    ],
+    "scenes": [],
+    "details": [],
+    "featured": false,
+    "family": "MOC"
+  },
+  {
+    "slug": "moc-twin-bed",
+    "code": "HA-B110",
+    "name": "MOC Twin Bed",
+    "dims": "",
+    "finish": "",
+    "category": "Beds",
+    "desc": "A twin bed with a spindle headboard and tapered legs.",
+    "material": "Solid beech",
+    "cover": "cutout",
+    "variants": [
+      {
+        "label": "",
+        "images": [
+          "/img/p/moc-twin-bed/moc-twin-bed-1.webp",
+          "/img/p/moc-twin-bed/moc-twin-bed-3.webp",
+          "/img/p/moc-twin-bed/moc-twin-bed-4.webp",
+          "/img/p/moc-twin-bed/moc-twin-bed-5.webp"
+        ]
+      }
+    ],
+    "scenes": [],
+    "details": [],
+    "featured": false,
+    "family": "MOC"
+  },
+  {
+    "slug": "moc-media-unit",
+    "code": "HA-K155",
+    "name": "MOC Media Unit",
+    "dims": "",
+    "finish": "PU finish",
+    "category": "Storage",
+    "desc": "A low media unit with drawers and open shelves, and an opening at the back for cables.",
+    "material": "Solid beech",
+    "cover": "cutout",
+    "variants": [
+      {
+        "label": "Walnut",
+        "images": [
+          "/img/p/moc-media-unit/moc-media-unit-1.webp",
+          "/img/p/moc-media-unit/moc-media-unit-5.webp",
+          "/img/p/moc-media-unit/moc-media-unit-6.webp",
+          "/img/p/moc-media-unit/moc-media-unit-4.webp",
+          "/img/p/moc-media-unit/moc-media-unit-2.webp",
+          "/img/p/moc-media-unit/moc-media-unit-3.webp"
+        ]
+      },
+      {
+        "label": "Natural",
+        "images": [
+          "/img/p/moc-media-unit/moc-media-unit-7.webp",
+          "/img/p/moc-media-unit/moc-media-unit-8.webp",
+          "/img/p/moc-media-unit/moc-media-unit-9.webp",
+          "/img/p/moc-media-unit/moc-media-unit-10.webp",
+          "/img/p/moc-media-unit/moc-media-unit-11.webp",
+          "/img/p/moc-media-unit/moc-media-unit-12.webp"
+        ]
+      }
+    ],
+    "scenes": [],
+    "details": [],
+    "featured": false,
+    "family": "MOC"
+  },
+  {
+    "slug": "moc-bookshelf",
+    "code": "HA-K001",
+    "name": "MOC Bookshelf",
+    "dims": "W800 × D380 × H1780 mm",
+    "finish": "PU finish",
+    "category": "Storage",
+    "desc": "A leaning bookshelf with open shelves and a small cabinet, for books, plants and everyday things.",
+    "material": "Solid beech",
+    "cover": "cutout",
+    "variants": [
+      {
+        "label": "Two-tone",
+        "images": [
+          "/img/p/moc-bookshelf/moc-bookshelf-4.webp",
+          "/img/p/moc-bookshelf/moc-bookshelf-5.webp",
+          "/img/p/moc-bookshelf/moc-bookshelf-1.webp",
+          "/img/p/moc-bookshelf/moc-bookshelf-2.webp",
+          "/img/p/moc-bookshelf/moc-bookshelf-3.webp"
+        ]
+      },
+      {
+        "label": "Walnut",
+        "images": [
+          "/img/p/moc-bookshelf/moc-bookshelf-6.webp",
+          "/img/p/moc-bookshelf/moc-bookshelf-7.webp",
+          "/img/p/moc-bookshelf/moc-bookshelf-8.webp",
+          "/img/p/moc-bookshelf/moc-bookshelf-9.webp"
+        ]
+      },
+      {
+        "label": "Natural",
+        "images": [
+          "/img/p/moc-bookshelf/moc-bookshelf-10.webp",
+          "/img/p/moc-bookshelf/moc-bookshelf-12.webp",
+          "/img/p/moc-bookshelf/moc-bookshelf-13.webp",
+          "/img/p/moc-bookshelf/moc-bookshelf-14.webp",
+          "/img/p/moc-bookshelf/moc-bookshelf-11.webp"
+        ]
+      }
+    ],
+    "scenes": [],
+    "details": [],
+    "featured": false,
+    "family": "MOC"
+  },
+  {
+    "slug": "moc-nightstand",
+    "code": "HA-N101",
+    "name": "MOC Nightstand",
+    "dims": "W510 × D508 × H610 mm",
+    "finish": "PU coating",
+    "category": "Storage",
+    "desc": "A compact nightstand with two drawers and tapered legs.",
+    "material": "Solid beech",
+    "cover": "cutout",
+    "variants": [
+      {
+        "label": "Walnut",
+        "images": [
+          "/img/p/moc-nightstand/moc-nightstand-1.webp",
+          "/img/p/moc-nightstand/moc-nightstand-3.webp",
+          "/img/p/moc-nightstand/moc-nightstand-2.webp"
+        ]
+      }
+    ],
+    "scenes": [],
+    "details": [],
+    "featured": false,
+    "family": "MOC"
+  }
+]
