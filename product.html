@@ -21,6 +21,19 @@
           history.replaceState(null, "", location.pathname + location.search); } catch (e) {}
   addEventListener("load", function () { if (!location.hash) scrollTo(0, 0); });
 </script>
+<!-- Google tag (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J76Q0MK2Z8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-J76Q0MK2Z8");
+  // calls, emails and WhatsApp count as leads: GA4 does not track these links by itself
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="tel:"], a[href^="mailto:"], a[href*="wa.me/"]');
+    if (a) gtag("event", "generate_lead", { method: a.protocol === "https:" ? "whatsapp" : a.protocol.slice(0, -1) });
+  });
+</script>
 </head>
 <body>
 <div class="loader" aria-hidden="true"><img src="img/logo-blue.svg?v=17" alt="" width="132" height="60"><div class="bar"><i></i></div><p class="pct">0%</p></div>
