@@ -111,6 +111,10 @@
     }
     document.title = `${p.name} | HAVICO`;
     $('meta[name="description"]').setAttribute("content", p.desc);
+    // one canonical URL per product, so Google does not fold every ?p= page into one
+    const canon = document.createElement("link");
+    canon.rel = "canonical"; canon.href = `https://havicof.com/product.html?p=${encodeURIComponent(p.slug)}`;
+    document.head.appendChild(canon);
     let vi = 0, ii = 0;
     const mail = () => `mailto:sale01@havicof.com?subject=${encodeURIComponent("Quote request: " + p.name + (p.code ? " (" + p.code + ")" : "") + (p.variants[vi].label ? ", " + p.variants[vi].label : ""))}`;
     const draw = () => {
