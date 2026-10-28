@@ -463,16 +463,13 @@ html.lenis, html.lenis body { height: auto; }
 .cert-grid p { color: var(--moss); font-size: 15px; }
 .badges { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 8px; }
 .badges img { height: 44px; width: auto; mix-blend-mode: multiply; }
-.partners { display: grid; grid-template-columns: 1fr 2fr; gap: 12px; margin-top: 12px; }
-.partners > div:first-child { background: var(--mist); border-radius: var(--r); padding: 28px; }
-.partners h3 { margin-bottom: 8px; }
-.partners p { font-size: 15px; }
-/* logos are pre-trimmed onto equal 2:1 tiles, so a 3x3 grid keeps them balanced */
-.logos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-.logos img { display: block; width: 100%; height: auto; aspect-ratio: 2; padding: 22px 28px; box-sizing: border-box; background: var(--mist); border-radius: var(--r); filter: grayscale(1); transition: filter .4s; }
-.logos img:hover { filter: none; }
-@media (max-width: 960px) { .partners { grid-template-columns: 1fr; } }
-@media (max-width: 600px) { .logos img { padding: 12px 14px; } }
+.partners { margin-top: 48px; }
+.partners h3 { font-size: 14px; font-weight: 400; color: var(--moss); margin-bottom: 8px; }
+/* logos are pre-trimmed onto equal 2:1 tiles, so an even grid keeps them balanced */
+.logos { display: grid; grid-template-columns: repeat(9, 1fr); gap: 8px 24px; align-items: center; }
+.logos img { display: block; width: 100%; height: auto; aspect-ratio: 2; filter: grayscale(1); opacity: .7; mix-blend-mode: multiply; transition: filter .4s, opacity .4s; }
+.logos img:hover { filter: none; opacity: 1; }
+@media (max-width: 960px) { .logos { grid-template-columns: repeat(3, 1fr); gap: 4px 28px; } }
 
 .cat-band { background: var(--blue); color: #fff; padding: 64px 0; }
 .cat-band .lead { color: #c7d7ee; margin-top: 12px; }

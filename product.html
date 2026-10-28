@@ -15,6 +15,11 @@
   try { if (sessionStorage.getItem("hv-seen")) document.documentElement.classList.add("seen");
         else document.documentElement.classList.add("is-loading"); } catch (e) {}
   setTimeout(function () { document.documentElement.classList.remove("is-loading"); }, 3300);
+  // F5 starts again from the top, even after jumping to a section
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  try { if (performance.getEntriesByType("navigation")[0].type === "reload" && location.hash)
+          history.replaceState(null, "", location.pathname + location.search); } catch (e) {}
+  addEventListener("load", function () { if (!location.hash) scrollTo(0, 0); });
 </script>
 </head>
 <body>

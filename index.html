@@ -5,23 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>HAVICO | Solid wood furniture manufacturer &amp; exporter, Vietnam</title>
 <meta name="description" content="HAVICO is a Vietnamese manufacturer and exporter of solid wood furniture. OEM and ODM furniture production in our own 14,000 m² factory in Hai Phong. ISO 9001:2015, FSC® CoC.">
-<link rel="icon" href="img/favicon.svg?v=18">
+<link rel="icon" href="img/favicon.svg?v=19">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=18">
+<link rel="stylesheet" href="css/site.css?v=19">
 <script>
   // loading screen only on the first page of a visit; the hero waits for it
   try { if (sessionStorage.getItem("hv-seen")) document.documentElement.classList.add("seen");
         else document.documentElement.classList.add("is-loading"); } catch (e) {}
   setTimeout(function () { document.documentElement.classList.remove("is-loading"); }, 3300);
+  // F5 starts again from the top, even after jumping to a section
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  try { if (performance.getEntriesByType("navigation")[0].type === "reload" && location.hash)
+          history.replaceState(null, "", location.pathname + location.search); } catch (e) {}
+  addEventListener("load", function () { if (!location.hash) scrollTo(0, 0); });
 </script>
 </head>
 <body>
-<div class="loader" aria-hidden="true"><img src="img/logo-blue.svg?v=18" alt="" width="132" height="60"><div class="bar"><i></i></div><p class="pct">0%</p></div>
+<div class="loader" aria-hidden="true"><img src="img/logo-blue.svg?v=19" alt="" width="132" height="60"><div class="bar"><i></i></div><p class="pct">0%</p></div>
 
 <header class="nav" aria-label="Main">
-  <a class="logo" href="index.html"><img src="img/logo-blue.svg?v=18" alt="HAVICO" width="141" height="40"></a>
+  <a class="logo" href="index.html"><img src="img/logo-blue.svg?v=19" alt="HAVICO" width="141" height="40"></a>
   <ul>
     <li><a href="products.html">Products</a></li>
     <li><a href="#capabilities">OEM &amp; ODM</a></li>
@@ -162,8 +167,8 @@
         <div><h3>Material standards</h3><div class="badges"><img src="img/cert/c-fsc.webp" alt="FSC"><img src="img/cert/c-carb.webp" alt="CARB Phase 2"><img src="img/cert/c-e0.webp" alt="E0"><img src="img/cert/c-e1.webp" alt="E1"><img src="img/cert/c-reach.webp" alt="REACH, RoHS"></div></div>
       </div>
       <div class="partners">
-        <div><h3>Partners &amp; suppliers</h3><p class="muted">The machines, hardware, boards, finishes and fabrics behind our furniture.</p></div>
-        <div class="logos"><img src="img/partners/l-homag.webp?v=18" alt="HOMAG"><img src="img/partners/l-hafele.webp?v=18" alt="Häfele"><img src="img/partners/l-ancuong.webp?v=18" alt="An Cuong"><img src="img/partners/l-aica.webp?v=18" alt="AICA"><img src="img/partners/l-becker.webp?v=18" alt="Becker Chem"><img src="img/partners/l-nippon.webp?v=18" alt="Nippon Paint"><img src="img/partners/l-koyo.webp?v=18" alt="Koyobond"><img src="img/partners/l-camira.webp?v=18" alt="Camira"><img src="img/partners/l-mastrotto.webp?v=18" alt="Gruppo Mastrotto"></div>
+        <h3>Partners &amp; suppliers</h3>
+        <div class="logos"><img src="img/partners/l-homag.webp?v=19" alt="HOMAG"><img src="img/partners/l-hafele.webp?v=19" alt="Häfele"><img src="img/partners/l-ancuong.webp?v=19" alt="An Cuong"><img src="img/partners/l-aica.webp?v=19" alt="AICA"><img src="img/partners/l-becker.webp?v=19" alt="Becker Chem"><img src="img/partners/l-nippon.webp?v=19" alt="Nippon Paint"><img src="img/partners/l-koyo.webp?v=19" alt="Koyobond"><img src="img/partners/l-camira.webp?v=19" alt="Camira"><img src="img/partners/l-mastrotto.webp?v=19" alt="Gruppo Mastrotto"></div>
       </div>
     </div>
   </section>
@@ -205,9 +210,9 @@
   </div>
 </footer>
 
-<script src="js/data.js?v=18"></script>
-<script src="js/site.js?v=18"></script>
+<script src="js/data.js?v=19"></script>
+<script src="js/site.js?v=19"></script>
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="js/motion.js?v=18"></script>
+<script src="js/motion.js?v=19"></script>
 </body>
 </html>
