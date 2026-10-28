@@ -265,7 +265,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 16px 40px; justify-content: 
 
 /* hero load sequence: wordmark rises, sofa settles, glass slides in */
 .wordmark .ch { display: inline-block; animation: rise 1.5s var(--ease) both; animation-delay: calc(var(--i) * 80ms + 150ms); }
-.wordmark { overflow-x: visible; overflow-y: clip; padding-bottom: .04em; font-size: clamp(80px, 19.5vw, 300px) !important; }
+.wordmark { overflow-x: visible; overflow-y: clip; padding-bottom: .04em; white-space: nowrap; font-size: clamp(56px, 19.5vw, 300px) !important; }
 .hero-product { animation: settle 1.9s var(--ease) .5s both; }
 .flute { animation: slide-in 1.8s var(--ease) .8s both; }
 .flute-card { animation: fade-up 1.2s var(--ease) 1.5s both; }
@@ -424,6 +424,12 @@ html.lenis, html.lenis body { height: auto; }
 @media (hover: hover) and (pointer: fine) {
   .flute { transition: width 1.6s var(--ease); }
   .hero:hover .flute { width: 12%; }
+}
+/* touch screens have no hover: the glass slides in, then pulls back to the edge by itself */
+@media (hover: none), (pointer: coarse) {
+  .flute { animation: slide-in 1.8s var(--ease) .8s both, retract 1.6s var(--ease) 3s both; }
+  @keyframes retract { to { width: 12%; } }
+  @media (prefers-reduced-motion: reduce) { .flute { width: 12%; } }
 }
 
 /* ---------- manufacturer sections ---------- */
