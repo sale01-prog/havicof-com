@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Products | HAVICO</title>
+<meta name="description" content="Solid wood dining chairs, tables, lounge chairs, sofas, beds, storage and outdoor furniture made by HAVICO in Hai Phong, Vietnam.">
+<link rel="icon" href="img/logo-blue.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css?v=12">
+<script>
+  // loading screen only on the first page of a visit; the hero waits for it
+  try { if (sessionStorage.getItem("hv-seen")) document.documentElement.classList.add("seen");
+        else document.documentElement.classList.add("is-loading"); } catch (e) {}
+  setTimeout(function () { document.documentElement.classList.remove("is-loading"); }, 3300);
+</script>
+</head>
+<body>
+<div class="loader" aria-hidden="true"><img src="img/logo-blue.svg" alt="" width="132" height="60"><div class="bar"><i></i></div><p class="pct">0%</p></div>
+
+<header class="nav nav-solid" aria-label="Main">
+  <a class="logo" href="index.html"><img src="img/logo-blue.svg" alt="HAVICO" width="66" height="30"></a>
+  <ul>
+    <li><a href="products.html" aria-current="page">Products</a></li>
+    <li><a href="index.html#capabilities">OEM &amp; ODM</a></li>
+    <li><a href="index.html#factory">Factory</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a class="btn btn-solid" href="index.html#contact">Request a quote</a>
+  <button class="menu-btn" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</header>
+
+<main class="wrap">
+  <div class="page-head">
+    <h1>Products</h1>
+    <p class="lead" style="margin-top:20px">Every piece is made in our factory in Hai Phong. Most models can be made in other sizes, woods and finishes for OEM and ODM orders.</p>
+  </div>
+  <div class="filters-bar"><div class="filters" data-filters role="group" aria-label="Filter by category"></div></div>
+  <p class="muted" data-count aria-live="polite" style="margin:12px 0 24px;font-size:14px"></p>
+  <div class="grid" data-grid></div>
+  <div style="height:96px"></div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>HAVICO Wood Joint Stock Company · Tax code 0202229723</p>
+    <a href="files/HAVICO-Catalogue-EN.pdf" class="link" download>Catalogue (EN, PDF)</a>
+    <a href="https://havicof.vn" class="link">havicof.vn (Tiếng Việt)</a>
+    <div class="social" data-social></div>
+  </div>
+</footer>
+
+<script src="js/data.js?v=12"></script>
+<script src="js/site.js?v=12"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="js/motion.js?v=12"></script>
+</body>
+</html>
