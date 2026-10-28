@@ -40,7 +40,7 @@
   const card = p => {
     const a = cover(p), b = second(p);
     const opts = p.variants.length > 1 ? `${p.variants.length} options` : "";
-    return `<a class="card" href="product.html?p=${p.slug}">
+    return `<a class="card" href="products/${p.slug}.html">
       <div class="ph${p.cover === "photo" ? " photo" : ""}">${a ? `<img class="${b ? "has-alt" : ""}" src="${src(p, a)}" alt="${esc(p.name)}" loading="lazy">` : ""}
         ${b ? `<img class="alt" src="${src(p, b)}" alt="" loading="lazy">` : ""}</div>
       <div class="meta"><h3>${esc(p.name)}</h3>${p.code ? `<span class="code">${p.code}</span>` : ""}</div>
@@ -83,7 +83,7 @@
   const strip = $("[data-scenes]");
   if (strip) strip.innerHTML = pick(P.filter(p => p.details && p.details.length), 10).map(p => {
     const s = p.details[0];
-    return `<figure><a href="product.html?p=${p.slug}"><img src="${src(p, s)}" alt="Close-up of the ${esc(p.name)}" loading="lazy"></a><figcaption>${esc(p.name)}</figcaption></figure>`;
+    return `<figure><a href="products/${p.slug}.html"><img src="${src(p, s)}" alt="Close-up of the ${esc(p.name)}" loading="lazy"></a><figcaption>${esc(p.name)}</figcaption></figure>`;
   }).join("");
 
   // catalogue
@@ -108,18 +108,11 @@
   // product page
   const pdp = $("[data-pdp]");
   if (pdp) {
-    const slug = new URLSearchParams(location.search).get("p");
-    const p = P.find(x => x.slug === slug);
+    const p = P.find(x => x.slug === pdp.dataset.slug);
     if (!p) {
       pdp.innerHTML = `<div class="page-head"><h1>Product not found</h1><p class="lead" style="margin-top:16px">This product is no longer listed. <a class="link" href="products.html">See all products</a></p></div>`;
       return;
     }
-    document.title = `${p.name} | HAVICO`;
-    $('meta[name="description"]').setAttribute("content", p.desc);
-    // one canonical URL per product, so Google does not fold every ?p= page into one
-    const canon = document.createElement("link");
-    canon.rel = "canonical"; canon.href = `https://havicof.com/product.html?p=${encodeURIComponent(p.slug)}`;
-    document.head.appendChild(canon);
     let vi = 0, ii = 0;
     const mail = () => `mailto:sale01@havicof.com?subject=${encodeURIComponent("Quote request: " + p.name + (p.code ? " (" + p.code + ")" : "") + (p.variants[vi].label ? ", " + p.variants[vi].label : ""))}`;
     const draw = () => {

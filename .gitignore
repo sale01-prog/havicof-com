@@ -1,3 +1,5 @@
-_build/
+_build/*
+!_build/pages.py
+!_build/product.html
 *.raw.json
 desktop.ini
