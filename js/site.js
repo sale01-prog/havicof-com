@@ -12,6 +12,10 @@
   const SW = { Natural: "#d9b58a", Walnut: "#6b4a33", Black: "#25292a", White: "#f2f0ec", Green: "#5d7262", "Orange red": "#d0532f", "Two-tone": "linear-gradient(90deg,#d9b58a 50%,#6b4a33 50%)" };
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const src = (p, f) => f.replace(/^\//, "");  // CMS stores /img/...; relative keeps local previews working
+  // 500 px copy (made by _build/thumbs.py) for cards and thumbnails; a photo just added in the CMS
+  // has none yet, so the <img> falls back to the full-size file
+  const sm = (p, f) => src(p, f).replace(/^(img\/p\/[^/]+\/)([^/]+)$/, "$1sm/$2");
+  const small = (p, f) => `src="${sm(p, f)}" onerror="this.onerror=null;this.src='${src(p, f)}'"`;
   const cover = p => p.variants[0].images[0];
   const second = p => p.variants[0].images[1] || (p.variants[1] && p.variants[1].images[0]);
 
@@ -41,8 +45,8 @@
     const a = cover(p), b = second(p);
     const opts = p.variants.length > 1 ? `${p.variants.length} options` : "";
     return `<a class="card" href="products/${p.slug}.html">
-      <div class="ph${p.cover === "photo" ? " photo" : ""}">${a ? `<img class="${b ? "has-alt" : ""}" src="${src(p, a)}" alt="${esc(p.name)}" loading="lazy">` : ""}
-        ${b ? `<img class="alt" src="${src(p, b)}" alt="" loading="lazy">` : ""}</div>
+      <div class="ph${p.cover === "photo" ? " photo" : ""}">${a ? `<img class="${b ? "has-alt" : ""}" ${small(p, a)} alt="${esc(p.name)}" loading="lazy">` : ""}
+        ${b ? `<img class="alt" ${small(p, b)} alt="" loading="lazy">` : ""}</div>
       <div class="meta"><h3>${esc(p.name)}</h3>${p.code ? `<span class="code">${p.code}</span>` : ""}</div>
       <p class="sub">${esc(p.category)}${opts ? " · " + opts : ""}</p>${swatches(p)}</a>`;
   };
@@ -77,7 +81,7 @@
     const list = P.filter(p => p.category === c), cut = list.filter(x => x.cover === "cutout");
     const p = pick(cut, 1)[0] || cut.find(x => !used.has(x.slug)) || list[0], a = cover(p);
     used.add(p.slug);
-    return `<a class="cat" href="products.html#${encodeURIComponent(c)}"><img src="${src(p, a)}" alt="" loading="lazy"><div><b>${esc(c)}</b><span>${list.length}</span></div></a>`;
+    return `<a class="cat" href="products.html#${encodeURIComponent(c)}"><img ${small(p, a)} alt="" loading="lazy"><div><b>${esc(c)}</b><span>${list.length}</span></div></a>`;
   }).join("");
 
   const strip = $("[data-scenes]");
@@ -114,13 +118,14 @@
       return;
     }
     let vi = 0, ii = 0;
-    const mail = () => `mailto:sale01@havicof.com?subject=${encodeURIComponent("Quote request: " + p.name + (p.code ? " (" + p.code + ")" : "") + (p.variants[vi].label ? ", " + p.variants[vi].label : ""))}`;
+    // quote requests go to the form on the home page, with this product filled in
+    const mail = () => `index.html?item=${encodeURIComponent(p.name + (p.code ? " (" + p.code + ")" : "") + (p.variants[vi].label ? ", " + p.variants[vi].label : ""))}#quote`;
     const draw = () => {
       const v = p.variants[vi], im = v.images[ii] || v.images[0];
       pdp.innerHTML = `<div class="pdp">
         <div>
           <div class="gallery-main${p.cover === "photo" ? " photo" : ""}" tabindex="0" role="button" aria-label="Open photo viewer">${im ? `<img src="${src(p, im)}" alt="${esc(p.name)}${v.label ? ", " + esc(v.label) : ""}">` : ""}</div>
-          ${v.images.length > 1 ? `<div class="thumbs">${v.images.map((x, i) => `<button data-i="${i}" aria-current="${i === ii}" aria-label="View image ${i + 1}"><img src="${src(p, x)}" alt="" loading="lazy"></button>`).join("")}</div>` : ""}
+          ${v.images.length > 1 ? `<div class="thumbs">${v.images.map((x, i) => `<button data-i="${i}" aria-current="${i === ii}" aria-label="View image ${i + 1}"><img ${small(p, x)} alt="" loading="lazy"></button>`).join("")}</div>` : ""}
         </div>
         <div class="pdp-info">
           <p class="crumbs"><a href="products.html">Products</a> / <a href="products.html#${encodeURIComponent(p.category)}">${esc(p.category)}</a></p>
@@ -137,6 +142,9 @@
             ${p.finish ? `<div><dt>Finish &amp; upholstery</dt><dd>${esc(p.finish)}</dd></div>` : ""}
             <div><dt>Made in</dt><dd>HAVICO factory, Hai Phong, Vietnam</dd></div>
             <div><dt>OEM / ODM</dt><dd>Custom sizes, woods, finishes and your own branding</dd></div>
+            <div><dt>Price term</dt><dd>FOB Hai Phong port, Vietnam</dd></div>
+            <div><dt>MOQ</dt><dd>Set per model; several models can share one 40HC container</dd></div>
+            <div><dt>Lead time</dt><dd>60 days after deposit and order confirmation</dd></div>
           </dl>
         </div></div>
         ${p.scenes.length ? `<h2 style="font-size:clamp(26px,3vw,40px);margin:8px 0 24px">More photos</h2><div class="scenes">${p.scenes.map(s => `<img src="${src(p, s)}" alt="${esc(p.name)} in an interior" loading="lazy">`).join("")}</div>` : ""}`;
@@ -200,5 +208,18 @@
       const others = P.filter(x => x.family !== p.family);
       rel.innerHTML = pick([...others.filter(x => x.category === p.category), ...others], 4).map(card).join("");
     }
+  }
+  // quote form: product chosen on a product page, thank-you note after sending, file size check
+  const quote = $("#quote");
+  if (quote) {
+    const q = new URLSearchParams(location.search);
+    if (q.get("item")) quote.message.value = `${q.get("item")}
+Quantity: `;
+    if (q.get("sent")) $(".sent", quote).hidden = false;
+    quote.addEventListener("submit", e => {
+      const f = quote.attachment.files[0];
+      if (f && f.size > 5e6) { e.preventDefault(); alert("The file is larger than 5 MB. Please send a smaller file, or email it to sale01@havicof.com."); return; }
+      if (window.gtag) gtag("event", "generate_lead", { method: "form" });
+    });
   }
 })();
