@@ -16,7 +16,6 @@
     ["TikTok", "https://www.tiktok.com/@havicowood", '<path d="M16.6 3c.3 2.1 1.6 3.6 3.9 3.8v3a7 7 0 0 1-3.8-1.2v6.1a5.6 5.6 0 1 1-5.6-5.6c.3 0 .6 0 .9.1v3.1a2.6 2.6 0 1 0 1.8 2.4V3z"/>'],
     ["Shopee", "https://shopee.vn/havico", '<path d="M12 2.5a4 4 0 0 0-4 3.8H4.6l1.1 13.4A2.2 2.2 0 0 0 7.9 21.7h8.2a2.2 2.2 0 0 0 2.2-2L19.4 6.3H16a4 4 0 0 0-4-3.8zm0 1.6a2.4 2.4 0 0 1 2.4 2.2H9.6A2.4 2.4 0 0 1 12 4.1zm.1 5.3c1.4 0 2.4.5 2.9 1.2l-1 .9c-.5-.5-1.1-.8-1.9-.8-.8 0-1.3.4-1.3.9 0 1.5 4.6.8 4.6 3.8 0 1.4-1.2 2.6-3.4 2.6-1.4 0-2.6-.5-3.3-1.4l1-1c.6.7 1.4 1 2.3 1 1 0 1.6-.4 1.6-1 0-1.6-4.6-.8-4.6-3.8 0-1.4 1.3-2.4 3.1-2.4z"/>'],
     ["WhatsApp", "https://wa.me/840704898888", '<path d="M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.1-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.4.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.4z"/>'],
-    ["Viber", "viber://chat?number=%2B84704898888", '<path d="M11.4 2C7 2.1 3.3 3.4 3.1 9.5c-.1 3.5.2 6.3 2.6 7.8v3.6c0 .5.6.8 1 .4l2.4-2.6c1 .2 2 .2 3 .2 5.5-.1 8.6-1.9 8.8-8.6C21.1 3.4 16.4 1.9 11.4 2zm4.3 12.3c-.4.4-1 .6-1.6.4-2.8-.9-5.1-3-6.3-5.7-.3-.6-.2-1.3.3-1.8l.6-.6c.3-.3.8-.3 1.1 0l1.1 1.3c.3.3.2.8-.1 1.1l-.4.3c.6 1.3 1.6 2.3 2.9 2.9l.3-.4c.3-.3.8-.4 1.1-.1l1.3 1.1c.3.3.3.8 0 1.1z"/>'],
     ["Google Maps", "https://maps.app.goo.gl/oybtcz1inXaJqWVU8", '<path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/>']
   ];
   $$("[data-social]").forEach(el => el.innerHTML = SOCIAL.map(([n, u, d]) =>
@@ -128,7 +127,7 @@
           <p class="desc">${esc(p.desc)}</p>
           ${p.variants.length > 1 ? `<div class="opts"><p>${p.optLabel || "Finish"}: ${esc(v.label)}</p><div class="filters" style="margin:0">${p.variants.map((x, i) => `<button class="chip" data-v="${i}" aria-pressed="${i === vi}">${esc(x.label)}</button>`).join("")}</div></div>` : ""}
           <div class="pdp-actions"><a class="btn btn-solid" href="${mail()}">Request a quote</a><a class="btn" href="files/HAVICO-Catalogue-EN.pdf" download>Download catalogue</a></div>
-          <p class="muted" style="font-size:14px;margin-top:12px">Or call / WhatsApp / WeChat / Viber <a class="link" href="tel:+84704898888">+84 704 898 888</a></p>
+          <p class="muted" style="font-size:14px;margin-top:12px">Or call / WhatsApp / WeChat <a class="link" href="tel:+84704898888">+84 704 898 888</a></p>
           <dl class="specs">
             <div><dt>Category</dt><dd>${esc(p.category)}</dd></div>
             ${p.material ? `<div><dt>Material</dt><dd>${esc(p.material)}</dd></div>` : ""}
