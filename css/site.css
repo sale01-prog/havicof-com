@@ -425,12 +425,7 @@ html.lenis, html.lenis body { height: auto; }
   .flute { transition: width 1.6s var(--ease); }
   .hero:hover .flute { width: 12%; }
 }
-/* touch screens have no hover: the glass slides in, then pulls back to the edge by itself */
-@media (hover: none), (pointer: coarse) {
-  .flute { animation: slide-in 1.8s var(--ease) .8s both, retract 1.6s var(--ease) 3s both; }
-  @keyframes retract { to { width: 12%; } }
-  @media (prefers-reduced-motion: reduce) { .flute { width: 12%; } }
-}
+/* touch screens have no hover: motion.js opens the glass as the page scrolls down and closes it back to half at the top */
 
 /* ---------- manufacturer sections ---------- */
 .hero-title { font-size: clamp(22px, 2.2vw, 30px); line-height: 1.15; letter-spacing: -0.015em; margin-bottom: 8px; max-width: 22ch; }

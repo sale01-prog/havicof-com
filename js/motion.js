@@ -101,8 +101,9 @@
   }, { passive: true });
 
   // one animation loop: smooth scroll, eased cursor, hero depth
-  const stage = $(".hero-stage");
-  const s = { cx: ptr.x, cy: ptr.y, py: 0, tx: 0, ty: 0 };
+  const stage = $(".hero-stage"), flute = !fine && $(".flute");
+  const fw0 = flute ? flute.offsetWidth / flute.parentElement.offsetWidth * 100 : 0;  // the width site.css gives it
+  const s = { cx: ptr.x, cy: ptr.y, py: 0, tx: 0, ty: 0, fw: fw0 };
   const frame = t => {
     if (lenis) lenis.raf(t);
     if (ring) {
@@ -117,6 +118,11 @@
       stage.style.setProperty("--py", s.py.toFixed(1) + "px");
       stage.style.setProperty("--tx", s.tx.toFixed(4));
       stage.style.setProperty("--ty", s.ty.toFixed(4));
+    }
+    if (flute) {
+      // full width at the top, fully drawn back after 40% of a screen of scrolling
+      s.fw = lerp(s.fw, fw0 * Math.max(0, 1 - scrollY / (innerHeight * .4)), .15);
+      flute.style.width = s.fw.toFixed(2) + "%";
     }
     requestAnimationFrame(frame);
   };
