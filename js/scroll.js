@@ -56,9 +56,15 @@
   });
 
   /* six reasons: cells open from the bottom edge, one after another */
-  $$(".why").forEach(g => gsap.from(g.children, {
-    clipPath: "inset(100% 0% 0% 0%)", y: 30, duration: 1.2, ease: "expo.out", stagger: .07, scrollTrigger: once(g)
-  }));
+  $$(".why").forEach(g => {
+    gsap.fromTo($(".why-stage", g), { clipPath: "inset(18% 12% 18% 12% round 24px)" },
+      { clipPath: "inset(0% 0% 0% 0% round 6px)", duration: 1.6, ease: "expo.out", scrollTrigger: once(g, "top 80%") });
+    gsap.from($$(".why-list li", g), { autoAlpha: 0, y: 40, duration: 1.2, ease: "expo.out", stagger: .08, scrollTrigger: once(g, "top 80%"),
+      clearProps: "opacity,visibility,transform" });  // hand opacity back to the CSS that dims the reasons out of focus
+  });
+
+  /* order terms: the big figures rise one after another */
+  gsap.from(".terms > div", { autoAlpha: 0, y: 60, duration: 1.3, ease: "expo.out", stagger: .1, scrollTrigger: once(".terms", "top 85%") });
 
   /* order steps: one line runs through the sequence with the scroll; each step lights up as it is reached */
   const steps = $(".steps");

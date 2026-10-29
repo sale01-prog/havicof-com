@@ -68,10 +68,10 @@
     document.body.appendChild(ring);
     const label = $("span", ring);
     const setMode = el => {
-      const card = el && el.closest(".card, .cat, .strip a"), zoom = el && el.closest(".gallery-main");
+      const card = el && el.closest(".card, .cat, .strip a"), zoom = el && el.closest(".gallery-main"), film = el && el.closest(".video button");
       const hot = el && el.closest("a, button, [role=button], .chip");
-      ring.className = "cursor" + (card ? " is-view" : zoom ? " is-zoom" : hot ? " is-hot" : "");
-      label.textContent = card ? "View" : zoom ? "Zoom" : "";
+      ring.className = "cursor" + (card ? " is-view" : zoom || film ? " is-zoom" : hot ? " is-hot" : "");
+      label.textContent = card ? "View" : zoom ? "Zoom" : film ? "Play" : "";
     };
     document.addEventListener("pointerover", e => setMode(e.target));
     document.addEventListener("pointerdown", () => ring.classList.add("is-down"));
@@ -157,6 +157,37 @@
   check();
   const grid = $("[data-grid]");
   if (grid) new MutationObserver(() => $$("[data-reveal]", grid).forEach(el => el.classList.add("in"))).observe(grid, { childList: true });
+
+  // why buyers: the reason in focus (hovered, or nearest the middle of the screen) shows its photo
+  const why = $(".why");
+  if (why) {
+    const items = $$(".why-list li", why), shots = $$(".why-stage img", why);
+    let held = false;
+    const show = i => items.forEach((li, j) => { li.classList.toggle("on", j === i); shots[j] && shots[j].classList.toggle("on", j === i); });
+    if (fine) items.forEach((li, i) => {
+      li.addEventListener("pointerenter", () => { held = true; show(i); });
+      li.addEventListener("pointerleave", () => held = false);
+    });
+    const follow = () => {
+      if (held) return;
+      const mid = innerHeight * (innerWidth > 960 ? .5 : .62);
+      let best = 0, bestD = Infinity;
+      items.forEach((li, i) => { const r = li.getBoundingClientRect(), d = Math.abs(r.top + r.height / 2 - mid); if (d < bestD) { bestD = d; best = i; } });
+      show(best);
+    };
+    addEventListener("scroll", () => requestAnimationFrame(follow), { passive: true });
+  }
+
+  // factory video: swap the poster for the YouTube player on the first press
+  $$(".video[data-yt]").forEach(v => $("button", v).addEventListener("click", () => {
+    const f = document.createElement("iframe");
+    f.src = `https://www.youtube-nocookie.com/embed/${v.dataset.yt}?autoplay=1&rel=0&start=${v.dataset.start || 0}`;
+    f.title = "HAVICO factory video";
+    f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+    f.allowFullscreen = true;
+    v.replaceChildren(f);
+    if (typeof gtag === "function") gtag("event", "video_play", { video: v.dataset.yt });
+  }));
 
   // close-up strip: arrow buttons scroll one photo at a time
   $$("[data-strip]").forEach(b => b.addEventListener("click", () => {

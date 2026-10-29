@@ -30,7 +30,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=32">
+<link rel="stylesheet" href="css/site.css?v=34">
 <script>
   // loading screen only on the first page of a visit; the hero waits for it
   try { if (sessionStorage.getItem("hv-seen")) document.documentElement.classList.add("seen");
@@ -122,12 +122,22 @@
     <div class="wrap">
       <div class="sec-head"><h2>Why buyers work with HAVICO</h2><p class="lead">We work with importers, brands and retailers from first concept to container.</p></div>
       <div class="why">
-        <div><h3>35+ years in wood</h3><p>Three decades of woodworking experience behind every product we make.</p></div>
-        <div><h3>OEM &amp; ODM</h3><p>Build to your drawings, adapt one of our designs, or develop a new one together, under your brand.</p></div>
-        <div><h3>Modern factory</h3><p>HOMAG production lines and a closed paint room for precise, consistent output.</p></div>
-        <div><h3>5S management</h3><p>A clean, organised and safe production floor at every stage.</p></div>
-        <div><h3>Strict quality control</h3><p>Checks from raw timber selection to final finish, to international standards.</p></div>
-        <div><h3>RTA packing</h3><p>Ready-to-assemble designs that pack flat, lower freight cost and arrive safely.</p></div>
+        <div class="why-stage" aria-hidden="true">
+          <img class="on" src="img/heritage.webp" alt="" loading="lazy">
+          <img src="img/p/sen-y-back-dining-chair/sen-y-back-dining-chair-7.webp" alt="" loading="lazy" class="cut">
+          <img src="img/workshop.webp" alt="" loading="lazy">
+          <img src="img/factory-aerial.webp" alt="" loading="lazy">
+          <img src="img/craft.webp" alt="" loading="lazy">
+          <img src="img/factory-front.webp" alt="" loading="lazy">
+        </div>
+        <ul class="why-list">
+          <li class="on"><h3>35+ years in wood</h3><p>From a small woodworking shop in 1990 to a full factory: three decades of experience behind every product we make.</p></li>
+          <li><h3>OEM &amp; ODM</h3><p>Build to your drawings, adapt one of our designs, or develop a new one together, under your brand.</p></li>
+          <li><h3>Modern factory</h3><p>HOMAG production lines and a closed paint room for precise, consistent output.</p></li>
+          <li><h3>5S management</h3><p>A clean, organised and safe production floor at every stage.</p></li>
+          <li><h3>Strict quality control</h3><p>Checks from raw timber selection to final finish, to international standards.</p></li>
+          <li><h3>RTA packing</h3><p>Ready-to-assemble designs that pack flat, lower freight cost and arrive safely.</p></li>
+        </ul>
       </div>
       <h3 class="steps-title">How an order runs</h3>
       <ol class="steps">
@@ -137,14 +147,19 @@
         <li><b>Inspection</b><span>Checked through production and again before packing.</span></li>
         <li><b>Packing &amp; shipping</b><span>Packed for export and loaded for your market.</span></li>
       </ol>
-      <h3 class="steps-title">Order terms</h3>
-      <div class="facts terms">
-        <div><b>FOB Hai Phong</b><span>Prices quoted FOB Hai Phong port, Vietnam</span></div>
-        <div><b>Mixed 40HC</b><span>MOQ set per model; several models can share one 40HC container</span></div>
-        <div><b>60 days</b><span>Lead time after deposit and order confirmation</span></div>
-        <div><b>Flat-pack</b><span>Knock-down (RTA) packing available on many models, so more fits per container</span></div>
-        <div><b>Factory inspection</b><span>You or your third-party inspector check goods before shipment</span></div>
-      </div>
+    </div>
+  </section>
+
+  <section class="terms-band" aria-labelledby="terms-title">
+    <div class="wrap">
+      <h2 id="terms-title">Order terms</h2>
+      <dl class="terms">
+        <div><dt>FOB</dt><dd><b>Hai Phong port</b>Prices quoted FOB Hai Phong, Vietnam</dd></div>
+        <div><dt>40HC</dt><dd><b>Mixed containers</b>MOQ set per model; several models can share one 40HC</dd></div>
+        <div><dt>60<small> days</small></dt><dd><b>Lead time</b>After deposit and order confirmation</dd></div>
+        <div><dt>RTA</dt><dd><b>Flat-pack</b>Knock-down packing on many models, so more fits per container</dd></div>
+        <div><dt>QC</dt><dd><b>Factory inspection</b>You or your third-party inspector check goods before shipment</dd></div>
+      </dl>
     </div>
   </section>
 
@@ -176,6 +191,14 @@
         <img class="big" src="img/factory-aerial.webp" alt="Aerial view of the HAVICO factory in An Lao, Hai Phong" loading="lazy">
         <img src="img/factory-front.webp" alt="Front of the HAVICO factory" loading="lazy">
         <img src="img/workshop.webp" alt="Production floor inside the HAVICO factory" loading="lazy">
+      </div>
+      <!-- the YouTube player loads only when the visitor presses play -->
+      <div class="video" data-yt="PQkVtCNQ2sI" data-start="84">
+        <button type="button" aria-label="Play the HAVICO factory video">
+          <img src="https://i.ytimg.com/vi/PQkVtCNQ2sI/maxresdefault.jpg" alt="" loading="lazy" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/PQkVtCNQ2sI/hqdefault.jpg'">
+          <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+          <span class="video-label">Inside the HAVICO factory</span>
+        </button>
       </div>
       <div class="facts">
         <div><b>14,000 m²</b><span>Factory in An Lao, Hai Phong</span></div>
@@ -256,7 +279,7 @@
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="js/motion.js?v=31"></script>
-<script src="js/scroll.js?v=3"></script>
+<script src="js/motion.js?v=33"></script>
+<script src="js/scroll.js?v=4"></script>
 </body>
 </html>
