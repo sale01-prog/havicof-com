@@ -91,7 +91,7 @@
     ],
     "scenes": [],
     "details": [],
-    "featured": true,
+    "featured": false,
     "family": "TRAM"
   },
   {
@@ -434,7 +434,7 @@
     ],
     "scenes": [],
     "details": [],
-    "featured": false,
+    "featured": true,
     "family": "AN"
   },
   {
