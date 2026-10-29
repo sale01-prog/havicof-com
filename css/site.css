@@ -122,9 +122,11 @@ p { margin: 0; }
 /* sections */
 section { padding: clamp(64px, 9vw, 128px) 0; }
 .sec-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 40px; flex-wrap: wrap; }
+/* a heading with an introduction: the text sits under the heading, on the same left edge */
+.sec-head:has(> .lead) { flex-direction: column; align-items: flex-start; gap: 16px; }
 
 /* categories */
-.cats { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+.cats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
 .cat {
   display: grid; grid-template-rows: minmax(0, 1fr) auto; gap: 8px; text-decoration: none;
   background: var(--mist); border-radius: var(--r); padding: 16px; aspect-ratio: 4 / 5;
@@ -434,8 +436,15 @@ html.lenis, html.lenis body { height: auto; }
 .hero-foot p { color: var(--moss); }
 
 .trust { background: var(--paper); border-bottom: 1px solid var(--line); }
-.trust .facts { margin: 0; border-top: 0; }
-.trust .facts div { border-bottom: 0; padding: 28px 20px 28px 0; }
+/* key figures under the hero: five equal columns across the full width */
+.trust .facts { margin: 0 auto; border-top: 0; grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.trust .facts div { border-bottom: 0; padding: 32px 24px; border-left: 1px solid var(--line); }
+.trust .facts div:first-child { border-left: 0; padding-left: 0; }
+.trust .facts b { font-size: clamp(19px, 1.9vw, 28px); white-space: nowrap; }
+@media (max-width: 960px) {
+  .trust .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .trust .facts div { padding: 20px 16px 20px 0; border-left: 0; border-bottom: 1px solid var(--line); }
+}
 
 /* why buyers: a list of reasons beside one photo that changes with the reason in focus */
 .why { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(32px, 5vw, 88px); align-items: start; }
@@ -562,7 +571,6 @@ html.is-loading .hero * , html.is-loading .nav > * { animation-play-state: pause
 .logos.belt img { width: clamp(110px, 11vw, 150px); flex: none; }
 /* close-up strip while scroll.js drives it sideways (big screens) */
 .strip.is-driven { scroll-snap-type: none; overflow-x: hidden; }
-.factory-grid { transform-origin: 50% 0; }
 /* big screens: the order steps become a full-screen chapter while they are pinned */
 @media (min-width: 961px) and (hover: hover) and (pointer: fine) {
   .gsap-on .steps-block { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-top: 68px; }

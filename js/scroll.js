@@ -141,11 +141,6 @@
     return () => strip.classList.remove("is-driven");
   });
 
-  /* big screens: the factory photos come forward from a smaller frame, like a camera pushing in */
-  mm.add(BIG, () => {
-    gsap.fromTo(".factory-grid", { scale: .84 }, { scale: 1, ease: "none",
-      scrollTrigger: { trigger: ".factory-grid", start: "top bottom", end: "top 20%", scrub: true } });
-  });
 
   /* certificates tip up into place; on a mouse they lean toward the pointer */
   const certs = $$(".cert-grid > div");
