@@ -419,9 +419,15 @@ html.lenis, html.lenis body { height: auto; }
 .cat img, .thumbs img { mix-blend-mode: normal; }
 .thumbs button { padding: 0; }
 
-/* glass panel, on every screen: it starts closed over the middle, motion.js draws it fully back once the page
-   has loaded and closes it again as the page scrolls down */
-.flute { width: 50%; animation: none; }
+/* glass panel covers the right half.
+   mouse: it slides in on load; while the pointer is over the hero it draws fully back off the right edge, and closes on leave.
+   touch: it starts closed over the middle, motion.js draws it fully back once the page has loaded and closes it as the page scrolls */
+.flute { width: 50%; }
+@media (hover: hover) and (pointer: fine) {
+  .flute { transition: width 1.6s var(--ease), border-color .4s; }
+  .hero:hover .flute { width: 0; border-left-color: transparent; }
+}
+@media (hover: none), (pointer: coarse) { .flute { animation: none; } }
 
 /* ---------- manufacturer sections ---------- */
 .hero-title { font-size: clamp(22px, 2.2vw, 30px); line-height: 1.15; letter-spacing: -0.015em; margin-bottom: 8px; max-width: 22ch; }
