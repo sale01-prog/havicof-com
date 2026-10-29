@@ -101,7 +101,7 @@
   }, { passive: true });
 
   // one animation loop: smooth scroll, eased cursor, hero depth
-  const stage = $(".hero-stage"), flute = !fine && $(".flute");
+  const stage = $(".hero-stage"), flute = $(".flute");
   const FW_OPEN = 0, FW_SHUT = 50;  // % of the hero: fully drawn back off the right edge / closed to the middle of the chair
   const s = { cx: ptr.x, cy: ptr.y, py: 0, tx: 0, ty: 0, fw: FW_SHUT };
   let openAt = still ? -Infinity : null;  // when the opening draw starts: just after the loader has lifted

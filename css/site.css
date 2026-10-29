@@ -419,15 +419,9 @@ html.lenis, html.lenis body { height: auto; }
 .cat img, .thumbs img { mix-blend-mode: normal; }
 .thumbs button { padding: 0; }
 
-/* glass panel: covers the right half; when the pointer enters the hero it draws back
-   to the right edge so the product shows clearly, and slides back out on leave */
-@media (hover: hover) and (pointer: fine) {
-  .flute { transition: width 1.6s var(--ease); }
-  .hero:hover .flute { width: 12%; }
-}
-/* touch screens have no hover: the glass starts closed over the middle, motion.js draws it back once the page has loaded
-   and closes it again as the page scrolls down */
-@media (hover: none), (pointer: coarse) { .flute { width: 50%; animation: none; } }
+/* glass panel, on every screen: it starts closed over the middle, motion.js draws it fully back once the page
+   has loaded and closes it again as the page scrolls down */
+.flute { width: 50%; animation: none; }
 
 /* ---------- manufacturer sections ---------- */
 .hero-title { font-size: clamp(22px, 2.2vw, 30px); line-height: 1.15; letter-spacing: -0.015em; margin-bottom: 8px; max-width: 22ch; }
