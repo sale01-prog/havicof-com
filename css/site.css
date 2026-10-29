@@ -246,7 +246,6 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 16px 40px; justify-content: 
   .nav.open ul a { display: block; padding: 10px 0; font-size: 18px; }
   .nav.open .btn { display: inline-flex; }
   .flute { width: 38%; }
-  @media (hover: none), (pointer: coarse) { .flute { width: 0; visibility: hidden; } }  /* touch: motion.js closes it as the page scrolls */
   .flute-card { display: none; }
   .hero-product { width: 92vw; margin-top: 18vh; }
   .hero-foot { flex-direction: column; align-items: flex-start; }
@@ -426,7 +425,9 @@ html.lenis, html.lenis body { height: auto; }
   .flute { transition: width 1.6s var(--ease); }
   .hero:hover .flute { width: 12%; }
 }
-/* touch screens have no hover: the glass starts drawn back to the right, and motion.js closes it to the middle as the page scrolls down */
+/* touch screens have no hover: the glass starts closed over the middle, motion.js draws it back once the page has loaded
+   and closes it again as the page scrolls down */
+@media (hover: none), (pointer: coarse) { .flute { width: 50%; animation: none; } }
 
 /* ---------- manufacturer sections ---------- */
 .hero-title { font-size: clamp(22px, 2.2vw, 30px); line-height: 1.15; letter-spacing: -0.015em; margin-bottom: 8px; max-width: 22ch; }

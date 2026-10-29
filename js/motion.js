@@ -103,7 +103,9 @@
   // one animation loop: smooth scroll, eased cursor, hero depth
   const stage = $(".hero-stage"), flute = !fine && $(".flute");
   const FW_OPEN = 0, FW_SHUT = 50;  // % of the hero: fully drawn back off the right edge / closed to the middle of the chair
-  const s = { cx: ptr.x, cy: ptr.y, py: 0, tx: 0, ty: 0, fw: FW_OPEN };
+  const s = { cx: ptr.x, cy: ptr.y, py: 0, tx: 0, ty: 0, fw: FW_SHUT };
+  let openAt = still ? -Infinity : null;  // when the opening draw starts: just after the loader has lifted
+  const OPEN_MS = 1800, ease = k => k < .5 ? 4 * k * k * k : 1 - (-2 * k + 2) ** 3 / 2;
   const frame = t => {
     if (lenis) lenis.raf(t);
     if (ring) {
@@ -120,8 +122,12 @@
       stage.style.setProperty("--ty", s.ty.toFixed(4));
     }
     if (flute) {
-      // drawn back at the top so the chair and text read clearly; closes to the middle after 40% of a screen of scrolling
-      s.fw = lerp(s.fw, lerp(FW_OPEN, FW_SHUT, Math.min(1, scrollY / (innerHeight * .4))), .15);
+      // on load the glass draws back slowly to reveal the chair; after that it is fully open at the top
+      // and closes to the middle after 40% of a screen of scrolling
+      const byScroll = lerp(FW_OPEN, FW_SHUT, Math.min(1, scrollY / (innerHeight * .4)));
+      if (openAt === null && !document.documentElement.classList.contains("is-loading")) openAt = t + 250;
+      const k = openAt === null ? 0 : Math.min(1, Math.max(0, (t - openAt) / OPEN_MS));
+      s.fw = k < 1 ? lerp(FW_SHUT, byScroll, ease(k)) : lerp(s.fw, byScroll, .15);
       flute.style.width = s.fw.toFixed(2) + "%";
       flute.style.visibility = s.fw < .3 ? "hidden" : "visible";  // no stray edge line while fully open
     }
