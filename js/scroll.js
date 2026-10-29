@@ -9,6 +9,9 @@
   gsap.registerPlugin(ScrollTrigger);
   document.documentElement.classList.add("gsap-on");
   const once = (trigger, start = "top 86%") => ({ trigger, start, once: true });
+  // large mouse-driven screens get the slower, pinned "cinema" version of some sections; phones keep the light one
+  const mm = gsap.matchMedia();
+  const BIG = "(min-width: 961px) and (hover: hover) and (pointer: fine)";
 
   // keep ScrollTrigger in step with Lenis smooth scrolling
   const lenis = window.__lenis;
@@ -67,8 +70,20 @@
       li.classList.toggle("on", f > 0);
     });
     paint(0);
-    ScrollTrigger.create({ trigger: steps, start: "top 85%", end: "bottom 45%", scrub: true, onUpdate: s => paint(s.progress) });
-    gsap.from(items, { autoAlpha: 0, y: 30, duration: 1.1, ease: "expo.out", stagger: .09, scrollTrigger: once(steps) });
+    // big screens: the title and steps hold still while the line runs from the first step to the last
+    const block = document.createElement("div");
+    block.className = "steps-block";
+    const title = steps.previousElementSibling;
+    steps.before(block); block.append(title, steps);
+    mm.add({ big: BIG }, ctx => {
+      if (ctx.conditions.big) {
+        ScrollTrigger.create({ trigger: block, start: "top top", end: () => "+=" + innerHeight * 1.2, pin: true, scrub: true, onUpdate: s => paint(s.progress) });
+        gsap.from(items, { autoAlpha: 0, y: 60, duration: 1.4, ease: "expo.out", stagger: .12, scrollTrigger: once(block, "top 80%") });
+      } else {
+        ScrollTrigger.create({ trigger: steps, start: "top 85%", end: "bottom 45%", scrub: true, onUpdate: s => paint(s.progress) });
+        gsap.from(items, { autoAlpha: 0, y: 30, duration: 1.1, ease: "expo.out", stagger: .09, scrollTrigger: once(steps) });
+      }
+    });
   }
 
   /* photographs: a blue panel wipes across, then the picture settles from a slight zoom */
@@ -93,10 +108,38 @@
       .to(img, { scale: 1, duration: 1.6, ease: "expo.out" }, "<");
   });
   const craftImg = $(".craft-img img");
-  if (craftImg) gsap.fromTo(craftImg.parentElement, { yPercent: 6 }, { yPercent: -6, ease: "none",
-    scrollTrigger: { trigger: ".craft", start: "top bottom", end: "bottom top", scrub: true } });
-  $$(".points > div, .checks li").forEach((el, i) =>
-    gsap.from(el, { autoAlpha: 0, x: 30, duration: 1, ease: "expo.out", delay: (i % 4) * .08, scrollTrigger: once(el, "top 92%") }));
+  const points = $$(".points > div, .checks li");
+  mm.add({ big: BIG }, ctx => {
+    if (ctx.conditions.big && craftImg) {
+      // big screens: the section holds; the photo opens from a framed crop to its full size
+      // while the four details come forward one after another
+      gsap.timeline({ scrollTrigger: { trigger: ".craft", start: () => $(".craft").offsetHeight > innerHeight ? "top top" : "center center", end: () => "+=" + innerHeight * 1.3, pin: true, scrub: true } })
+        .fromTo(".craft-img", { clipPath: "inset(14% 12% 14% 12% round 18px)" }, { clipPath: "inset(0% 0% 0% 0% round 6px)", ease: "power2.inOut", duration: 1 }, 0)
+        .fromTo(points, { autoAlpha: .15, x: 40 }, { autoAlpha: 1, x: 0, ease: "power2.out", duration: .35, stagger: .12 }, .1);
+    } else {
+      if (craftImg) gsap.fromTo(craftImg.parentElement, { yPercent: 6 }, { yPercent: -6, ease: "none",
+        scrollTrigger: { trigger: ".craft", start: "top bottom", end: "bottom top", scrub: true } });
+      points.forEach((el, i) =>
+        gsap.from(el, { autoAlpha: 0, x: 30, duration: 1, ease: "expo.out", delay: (i % 4) * .08, scrollTrigger: once(el, "top 92%") }));
+    }
+  });
+
+  /* big screens: the close-up photos travel sideways while the section holds */
+  const strip = $("[data-scenes]");
+  if (strip) mm.add(BIG, () => {
+    const section = strip.closest("section");
+    const dist = () => Math.max(0, strip.scrollWidth - strip.clientWidth);
+    if (!dist()) return;
+    strip.classList.add("is-driven");
+    gsap.to(strip, { scrollLeft: dist, ease: "none", scrollTrigger: { trigger: section, start: "center center", end: () => "+=" + dist() * 1.1, pin: true, scrub: .6, invalidateOnRefresh: true } });
+    return () => strip.classList.remove("is-driven");
+  });
+
+  /* big screens: the factory photos come forward from a smaller frame, like a camera pushing in */
+  mm.add(BIG, () => {
+    gsap.fromTo(".factory-grid", { scale: .84 }, { scale: 1, ease: "none",
+      scrollTrigger: { trigger: ".factory-grid", start: "top bottom", end: "top 20%", scrub: true } });
+  });
 
   /* certificates tip up into place; on a mouse they lean toward the pointer */
   const certs = $$(".cert-grid > div");
@@ -151,6 +194,9 @@
   /* contact: form fields and details arrive in reading order */
   gsap.from(".quote > label, .quote > .actions", { autoAlpha: 0, y: 24, duration: 1, ease: "expo.out", stagger: .06, scrollTrigger: once(".quote", "top 88%") });
   gsap.from(".contact-list > div", { autoAlpha: 0, x: 40, duration: 1.1, ease: "expo.out", stagger: .08, scrollTrigger: once(".contact-list", "top 88%") });
+
+  // pins change everything below them: put the triggers back in page order before measuring
+  ScrollTrigger.sort(); ScrollTrigger.refresh();
 
   // images and fonts change section heights after load
   addEventListener("load", () => ScrollTrigger.refresh());

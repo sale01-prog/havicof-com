@@ -539,3 +539,15 @@ html.is-loading .hero * , html.is-loading .nav > * { animation-play-state: pause
 .logos.belt { display: block; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
 .logos-track { display: flex; gap: 56px; width: max-content; padding: 8px 0; will-change: transform; }
 .logos.belt img { width: clamp(110px, 11vw, 150px); flex: none; }
+/* close-up strip while scroll.js drives it sideways (big screens) */
+.strip.is-driven { scroll-snap-type: none; overflow-x: hidden; }
+.factory-grid { transform-origin: 50% 0; }
+/* big screens: the order steps become a full-screen chapter while they are pinned */
+@media (min-width: 961px) and (hover: hover) and (pointer: fine) {
+  .gsap-on .steps-block { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-top: 68px; }
+  .gsap-on .steps-block .steps-title { font-size: clamp(36px, 4.2vw, 60px); line-height: 1.02; letter-spacing: -0.02em; margin: 0 0 64px; }
+  .gsap-on .steps li::before { font-size: clamp(44px, 5vw, 80px); line-height: 1; letter-spacing: -0.03em; padding-bottom: 22px; margin-bottom: 22px; }
+  .gsap-on .steps b { font-size: 20px; }
+  /* the craft photo fits the screen so the whole section can hold still */
+  .gsap-on .craft-img { max-height: calc(100vh - 140px); }
+}
