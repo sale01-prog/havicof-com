@@ -563,7 +563,7 @@
     ],
     "scenes": [],
     "details": [],
-    "featured": false,
+    "featured": true,
     "family": "HAVEN"
   },
   {
@@ -656,7 +656,7 @@
     "details": [
       "/img/p/aspen-lounge-chair/aspen-lounge-chair-11.webp"
     ],
-    "featured": true,
+    "featured": false,
     "family": "ASPEN"
   },
   {
