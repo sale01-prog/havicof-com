@@ -246,7 +246,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 16px 40px; justify-content: 
   .nav.open ul a { display: block; padding: 10px 0; font-size: 18px; }
   .nav.open .btn { display: inline-flex; }
   .flute { width: 38%; }
-  @media (hover: none), (pointer: coarse) { .flute { width: 10%; } }  /* touch: motion.js closes it as the page scrolls */
+  @media (hover: none), (pointer: coarse) { .flute { width: 0; visibility: hidden; } }  /* touch: motion.js closes it as the page scrolls */
   .flute-card { display: none; }
   .hero-product { width: 92vw; margin-top: 18vh; }
   .hero-foot { flex-direction: column; align-items: flex-start; }

@@ -20,7 +20,8 @@
     const st = { trigger: hero, start: "top top", end: "bottom top", scrub: true };
     gsap.fromTo(hero, { clipPath: "inset(0% 0% 0% 0% round 0px)" },
       { clipPath: "inset(6% 3% 0% 3% round 28px)", ease: "none", scrollTrigger: st });
-    gsap.to(".hero-foot", { yPercent: -60, autoAlpha: 0, ease: "none", scrollTrigger: { ...st, end: "60% top" } });
+    // the text lifts off only once it has been read and is leaving the top of the screen
+    gsap.to(".hero-foot", { yPercent: -40, autoAlpha: 0, ease: "none", scrollTrigger: { trigger: ".hero-foot", start: "top 15%", end: "bottom top", scrub: true } });
   }
 
   /* headings: each word rises out of its own mask */

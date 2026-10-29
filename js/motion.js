@@ -102,7 +102,7 @@
 
   // one animation loop: smooth scroll, eased cursor, hero depth
   const stage = $(".hero-stage"), flute = !fine && $(".flute");
-  const FW_OPEN = 10, FW_SHUT = 50;  // % of the hero: drawn back to the right edge / closed to the middle of the chair
+  const FW_OPEN = 0, FW_SHUT = 50;  // % of the hero: fully drawn back off the right edge / closed to the middle of the chair
   const s = { cx: ptr.x, cy: ptr.y, py: 0, tx: 0, ty: 0, fw: FW_OPEN };
   const frame = t => {
     if (lenis) lenis.raf(t);
@@ -123,6 +123,7 @@
       // drawn back at the top so the chair and text read clearly; closes to the middle after 40% of a screen of scrolling
       s.fw = lerp(s.fw, lerp(FW_OPEN, FW_SHUT, Math.min(1, scrollY / (innerHeight * .4))), .15);
       flute.style.width = s.fw.toFixed(2) + "%";
+      flute.style.visibility = s.fw < .3 ? "hidden" : "visible";  // no stray edge line while fully open
     }
     requestAnimationFrame(frame);
   };
