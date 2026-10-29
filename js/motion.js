@@ -189,6 +189,12 @@
     if (typeof gtag === "function") gtag("event", "video_play", { video: v.dataset.yt });
   }));
 
+  // photos and video: no "Save image as", no dragging them out, no long-press save on phones.
+  // This only stops casual copying; anything shown on screen can still be captured.
+  const guarded = el => el && el.closest && el.closest("img, picture, video, svg image, .video, .why-stage, .ph, .gallery-main, .lb");
+  document.addEventListener("contextmenu", e => { if (guarded(e.target)) e.preventDefault(); });
+  document.addEventListener("dragstart", e => { if (guarded(e.target)) e.preventDefault(); });
+
   // close-up strip: arrow buttons scroll one photo at a time
   $$("[data-strip]").forEach(b => b.addEventListener("click", () => {
     const strip = $("[data-scenes]"), step = strip.firstElementChild ? strip.firstElementChild.offsetWidth + 12 : 300;
