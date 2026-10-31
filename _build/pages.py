@@ -19,13 +19,9 @@ def page(p):
     v0 = next(v for v in p["variants"] if v.get("images"))
     desc = (p.get("desc") or "").strip()
     meta = f"{desc} Solid wood furniture made by HAVICO in Hai Phong, Vietnam. OEM and ODM.".strip()
-    ld = [{"@context": "https://schema.org", "@type": "Product", "name": p["name"], "url": url,
-           "image": [BASE + i.lstrip("/") for i in imgs[:10]], "description": desc or meta,
-           "brand": {"@type": "Brand", "name": "HAVICO"}, "category": p.get("category") or "",
-           "manufacturer": {"@type": "Organization", "name": "HAVICO Wood Joint Stock Company", "url": BASE},
-           "countryOfOrigin": "VN",
-           **({"sku": p["code"]} if p.get("code") else {}), **({"material": p["material"]} if p.get("material") else {})},
-          {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+    # No Product markup: Google requires a price (offers) or reviews on it, and export prices are quoted per order.
+    # The breadcrumb still gives search results the category path.
+    ld = [{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
               {"@type": "ListItem", "position": 1, "name": "Products", "item": BASE + "products.html"},
               {"@type": "ListItem", "position": 2, "name": p.get("category") or "Products", "item": BASE + "products.html#" + quote(p.get("category") or "")},
               {"@type": "ListItem", "position": 3, "name": p["name"], "item": url}]}]
